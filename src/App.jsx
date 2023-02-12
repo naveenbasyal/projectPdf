@@ -1,28 +1,28 @@
 import React,{useState} from 'react'
-// Import the main component
-import { Viewer } from '@react-pdf-viewer/core'; // install this library
-// Plugins
 
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'; // install this library
-// Import the styles
+import { Viewer } from '@react-pdf-viewer/core'; 
+
+
+import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'; 
+
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-// Worker
-import { Worker } from '@react-pdf-viewer/core'; // install this library
+
+import { Worker } from '@react-pdf-viewer/core'; 
 
 export const App = () => {
 
-  // Create new plugin instance
+  
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
   
-  // for onchange event
+  
   const [pdfFile, setPdfFile]=useState(null);
   const [pdfFileError, setPdfFileError]=useState('');
 
-  // for submit event
+  
   const [viewPdf, setViewPdf]=useState(null);
 
-  // onchange event
+  
   const fileType=['application/pdf'];
   const handlePdfFileChange=(e)=>{
     let selectedFile=e.target.files[0];
@@ -45,7 +45,7 @@ export const App = () => {
     }
   }
 
-  // form submit
+  
   const handlePdfFileSubmit=(e)=>{
     e.preventDefault();
     if(pdfFile!==null){
@@ -74,13 +74,13 @@ export const App = () => {
       <br></br>
       <h4>View PDF</h4>
       <div className='pdf-container'>
-        {/* show pdf conditionally (if we have one)  */}
+
         {viewPdf&&<><Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
           <Viewer fileUrl={viewPdf}
             plugins={[defaultLayoutPluginInstance]} />
       </Worker></>}
 
-      {/* if we dont have pdf or viewPdf state is null */}
+      {/* if we dont have pdf */}
       {!viewPdf&&<>No pdf file selected</>}
       </div>
 

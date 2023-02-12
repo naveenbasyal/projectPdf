@@ -1,43 +1,44 @@
 import React, { useState } from "react";
-import axios from "axios";
 
-const ConvertToPDF = () => {
+const DocToPdf = () => {
   const [file, setFile] = useState(null);
-  const [convertedFile, setConvertedFile] = useState(null);
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
 
   const onFileChange = (event) => {
     setFile(event.target.files[0]);
   };
 
-  const convert = async () => {
+  const onConvert = async () => {
+    setError(null);
+    const apiKey = import.meta.env.VITE_API_KEY;
     const formData = new FormData();
-    formData.append("input", file);
+    formData.append("file", file);
+    formData.append("inputformat", "doc");
     formData.append("outputformat", "pdf");
-
     try {
-      const res = await axios.post("https://api.cloudconvert.com/convert", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        },
-        responseType: "blob"
+      const response = await fetch(`https://api.cloudconvert.com/convert?apikey=${apiKey}`, {
+        method: "POST",
+        body: formData
       });
-      setConvertedFile(res.data);
-    } catch (error) {
-      console.error(error);
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      const result = await response.blob();
+      setResult(URL.createObjectURL(result));
+    } catch (e) {
+      setError(e.message);
     }
   };
 
   return (
     <div>
       <input type="file" onChange={onFileChange} />
-      <button onClick={convert}>Convert to PDF</button>
-      {convertedFile && (
-        <a href={URL.createObjectURL(convertedFile)} download="converted.pdf">
-          Download Converted PDF
-        </a>
-      )}
+      <button onClick={onConvert}>Convert to PDF</button>
+      {error && <p>Error: {error}</p>}
+      {result && <iframe src={result} title="PDF Result" />}
     </div>
   );
 };
 
-export default ConvertToPDF;
+export default DocToPdf;
