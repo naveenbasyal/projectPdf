@@ -6,9 +6,9 @@ import Conversion from "./components/Conversion";
 const App = () => {
   return (
     <>
-      {/* <ViewPdf /> */}
+      <ViewPdf />
       {/* <Merge /> */}
-      <Conversion/>
+      {/* <Conversion/> */}
       
     </>
   );
