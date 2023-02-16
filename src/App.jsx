@@ -64,6 +64,21 @@ export const App = () => {
       <form className='form-group' onSubmit={handlePdfFileSubmit}>
         <input type="file" className='form-control'
           required onChange={handlePdfFileChange}
+          accept='
+          application/pdf,
+          application/x-pdf,
+          application/vnd.ms-excel,
+          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+          application/vnd.openxmlformats-officedocument.wordprocessingml.document,
+          application/msword,
+          application/vnd.ms-powerpoint,
+          application/vnd.openxmlformats-officedocument.presentationml.presentation,
+          application/vnd.oasis.opendocument.text,
+          application/vnd.oasis.opendocument.spreadsheet,
+          application/vnd.oasis.opendocument.presentation,
+          application/vnd.oasis.opendocument.graphics,
+          application/vnd.oasis.opendocument.chart,
+          '
         />
         {pdfFileError&&<div className='error-msg'>{pdfFileError}</div>}
         <br></br>
