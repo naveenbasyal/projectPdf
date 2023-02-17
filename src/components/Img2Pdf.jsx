@@ -57,7 +57,7 @@ function App() {
 
   async function handleSavePdf() {
     //save ke liye
-    const pdf = await generatePdf(images); 
+    const pdf = await generatePdf(images);  
     pdf.save("Img2Pdf.pdf");
   }
 
