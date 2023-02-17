@@ -26,7 +26,7 @@ async function generatePdf(images) {
   return doc;
 }
 
-function readImageDataUrl(file) {
+function readImageDataUrl(file) {//img kaha hai usko pta krne ke liye
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(reader.result);
@@ -36,7 +36,7 @@ function readImageDataUrl(file) {
 }
 
 async function getImageSize(dataUrl) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {//img ka size pta krne ke liye
     const img = new Image();
     img.onload = () => resolve({ width: img.width, height: img.height });
     img.onerror = reject;
@@ -47,12 +47,12 @@ async function getImageSize(dataUrl) {
 function App() {
   const [images, setImages] = useState([]);
 
-  async function handleFileInputChange(event) {
+  async function handleFileInputChange(event) {//jitne bhi img hai usko array mei dal dega
     const files = Array.from(event.target.files);
     setImages(files);
   }
 
-  async function handleSavePdf() {
+  async function handleSavePdf() {//save ke liye
     const pdf = await generatePdf(images);
     pdf.save("Img2Pdf.pdf");
   }
