@@ -8,7 +8,7 @@ function App() {
         console.log(err);
       }
       console.log('result' + result);
-    });
+    }); 
   }
 
   return (
