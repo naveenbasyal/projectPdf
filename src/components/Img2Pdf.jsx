@@ -26,7 +26,8 @@ async function generatePdf(images) {
   return doc;
 }
 
-function readImageDataUrl(file) {//img kaha hai usko pta krne ke liye
+function readImageDataUrl(file) {
+  //img kaha hai usko pta krne ke liye
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(reader.result);
@@ -36,7 +37,8 @@ function readImageDataUrl(file) {//img kaha hai usko pta krne ke liye
 }
 
 async function getImageSize(dataUrl) {
-  return new Promise((resolve, reject) => {//img ka size pta krne ke liye
+  return new Promise((resolve, reject) => {
+    //img ka size pta krne ke liye
     const img = new Image();
     img.onload = () => resolve({ width: img.width, height: img.height });
     img.onerror = reject;
@@ -47,26 +49,31 @@ async function getImageSize(dataUrl) {
 function App() {
   const [images, setImages] = useState([]);
 
-  async function handleFileInputChange(event) {//jitne bhi img hai usko array mei dal dega
+  async function handleFileInputChange(event) {
+    //jitne bhi img hai usko array mei dal dega
     const files = Array.from(event.target.files);
     setImages(files);
   }
 
-  async function handleSavePdf() {//save ke liye
+  async function handleSavePdf() {
+    //save ke liye
     const pdf = await generatePdf(images);
     pdf.save("Img2Pdf.pdf");
   }
 
   return (
-    <div>
-      <h1>Add multiple images to PDF</h1>
+    <div className="container ">
+      <h2>Add multiple images to PDF</h2>
       <input
+        className="form-control my-2"
         type="file"
         accept="image/*"
         multiple
         onChange={handleFileInputChange}
       />
-      <button onClick={handleSavePdf}>Save PDF</button>
+      <button className="btn btn-success my-2" onClick={handleSavePdf}>
+        Save PDF
+      </button>
     </div>
   );
 }

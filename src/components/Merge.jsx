@@ -23,7 +23,8 @@ const Merger = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container my-5">
+      <h2>Merge Multiple Pdfs into One!!</h2>
       <input
         className="form-control"
         type="file"

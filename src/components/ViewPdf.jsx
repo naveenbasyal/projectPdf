@@ -47,10 +47,11 @@ export const ViewPdf = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container my-3">
       <br></br>
 
       <form className="form-group" onSubmit={handlePdfFileSubmit}>
+        <h2>View PDF</h2>
         <input
           type="file"
           className="form-control"
@@ -59,12 +60,12 @@ export const ViewPdf = () => {
         />
         {pdfFileError && <div className="error-msg">{pdfFileError}</div>}
         <br></br>
-        <button type="submit" className="btn btn-success btn-lg">
+        {!viewPdf && <>No pdf file selected</>}<br/>
+        <button type="submit" className="btn btn-success my-3">
           UPLOAD
         </button>
       </form>
       <br></br>
-      <h4>View PDF</h4>
       <div className="pdf-container">
         {viewPdf && (
           <>
@@ -78,7 +79,6 @@ export const ViewPdf = () => {
         )}
 
         {/* if we dont have pdf */}
-        {!viewPdf && <>No pdf file selected</>}
       </div>
     </div>
   );
