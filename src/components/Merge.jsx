@@ -20,7 +20,7 @@ const Merger = () => {
     const url = URL.createObjectURL(mergedPdf);
 
     setMergedPdfUrl(url);
-  }; 
+  };  
 
   return (  
     <div className="container my-5">
