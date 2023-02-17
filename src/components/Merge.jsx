@@ -22,7 +22,7 @@ const Merger = () => {
     setMergedPdfUrl(url);
   };
 
-  return (
+  return ( 
     <div className="container my-5">
       <h2>Merge Multiple Pdfs into One!!</h2>
       <input
