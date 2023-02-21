@@ -59,8 +59,8 @@ export default function Home() {
       alert("Invalid page range");
     }
   }
+  // jab user file select krega
 
-  // Execute when user selects a file
   const onFileSelected = async (e) => {
     const fileList = e.target.files;
     if (fileList?.length > 0) {
