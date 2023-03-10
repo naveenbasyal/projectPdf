@@ -84,6 +84,7 @@ const PdfGenerator = () => {
 
   return (
     <div className="container my-5">
+      <h2 className="text-center">Create/Write your own Pdf</h2>
       <ReactQuill
         value={text}
         onChange={handleTextChange}

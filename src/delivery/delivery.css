@@ -1,0 +1,58 @@
+.delivery_header {
+  margin: 4rem 5rem;
+  padding: 1rem 3rem;
+  color: rgba(0, 0, 0, 0.76);
+}
+body {
+  background: radial-gradient(
+      97.39% 191.07% at 100% 100%,
+      rgba(255, 255, 255, 0.68) 0%,
+      rgba(255, 255, 255, 0.688) 100%
+    ),
+    radial-gradient(
+      57.84% 66.37% at 28.11% 57.84%,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      167.59% 313.95% at 0% 0%,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(227, 167, 255, 0.34) 100%
+    ),
+    radial-gradient(
+      160.42% 74.34% at 58.67% 95.08%,
+      rgba(66, 0, 255, 0.16) 0%,
+      rgba(173, 0, 255, 0) 100%
+    ),
+    linear-gradient(106.43deg, rgba(104, 128, 255, 0.35) 5.83%, #a3ffff 95.14%);
+}
+input {
+  cursor: pointer;
+}
+.add2cart {
+  text-decoration: none;
+}
+.instruction {
+  padding: 0rem 1rem;
+  background-color: #e8ecff;
+  width: 70%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+@media screen and (max-width: 450px) {
+  .delivery_header{
+    margin: 2rem 1rem;
+    padding: 1rem 1rem;
+  }
+  .main_delivery_section{
+    margin: 1rem 1rem!important;
+  }
+  .main_delivery_section .Options{
+    padding: 1rem 1rem!important;
+  }
+  #formFileLg{
+    font-size: 1rem!important;
+  }
+}
