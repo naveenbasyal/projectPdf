@@ -3,24 +3,28 @@ import React from "react";
 const BindingCharges = () => {
   return (
     <>
-      <table className="table">
+      <table className="table my-5">
         <thead>
           <tr>
-            <th scope="col">Binding</th>
-            <th scope="col">Price</th>
+            <th scope="col" className="fw-bold dim">
+              Binding
+            </th>
+            <th scope="col" className="dim">
+              Price
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Spiral Bound Book</td>
+            <td>Spiral Binding</td>
             <td>₹40.00</td>
           </tr>
           <tr>
-            <td> 3 Staples with Plastic Cover and Tape on Spine</td>
-            <td>₹20.00</td>
+            <td> Plastic Cover</td>
+            <td>₹10.00</td>
           </tr>
           <tr>
-            <td> 2 Staples on Left Edge</td>
+            <td> Staples only</td>
             <td> ₹5.00</td>
           </tr>
           <tr>

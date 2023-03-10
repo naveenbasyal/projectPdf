@@ -29,30 +29,32 @@ body {
 input {
   cursor: pointer;
 }
-.add2cart {
-  text-decoration: none;
+
+.icons {
+  width: 3rem;
 }
-.instruction {
-  padding: 0rem 1rem;
-  background-color: #e8ecff;
-  width: 70%;
-  border-radius: 10px;
-  border: none;
-  outline: none;
+.price_chart {
+  font-size: 1.15rem;
+}
+.totalPrice .container {
+  width: 40%;
 }
 
 @media screen and (max-width: 450px) {
-  .delivery_header{
+  .delivery_header {
     margin: 2rem 1rem;
     padding: 1rem 1rem;
   }
-  .main_delivery_section{
-    margin: 1rem 1rem!important;
+  .main_delivery_section {
+    margin: 1rem 1rem !important;
   }
-  .main_delivery_section .Options{
-    padding: 1rem 1rem!important;
+  .main_delivery_section .Options {
+    padding: 1rem 1rem !important;
   }
-  #formFileLg{
-    font-size: 1rem!important;
+  #formFileLg {
+    font-size: 1rem !important;
+  }
+  .totalPrice .container {
+    width: 80%;
   }
 }

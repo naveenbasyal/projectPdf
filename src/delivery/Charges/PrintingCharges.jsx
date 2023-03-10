@@ -6,8 +6,8 @@ const PaperCharges = () => {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Printing</th>
-            <th scope="col">Price</th>
+            <th scope="col" className="dim">Printing</th>
+            <th scope="col" className="dim">Price</th>
           </tr>
         </thead>
         <tbody>

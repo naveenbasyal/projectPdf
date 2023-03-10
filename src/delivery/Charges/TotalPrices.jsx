@@ -3,28 +3,32 @@ import { Link } from "react-router-dom";
 
 const TotalPrices = () => {
   return (
-    <>
-      {" "}
-      <section className="container  my-5 pop py-4 bg ">
-        <div className="container my-5 ">
-          <h3 className="center">Total Price</h3>
-          <span className="center fs-5">Rs.40</span>
-          <div className="my-5">
-            <h4 className="dim">Any Instructions ?</h4>
-            <input
-              className="instruction pop py-3"
-              type="text"
-              placeholder="Leave a message here"
-            />
-          </div>
-          <button className="btn btn-primary">
-            <Link to="/cart" className="text-white add2cart">
-              Add to Cart
-            </Link>
-          </button>
+    <div className="totalPrice my-5">
+      <hr class="hr hr-blurry" />
+
+      <div className="container my-5 ">
+        <h2 className="dim pop fw-bold center">Total Price</h2>
+        <h4 className="jsf fw-bold center my-3">Rs. 40</h4>
+
+        <div className="instructions my-4">
+          <span className="fw-bold my-3 dim pop float-start">
+            Any Instructions ?
+          </span>
+          <input
+            type="text"
+            className="form-control pop"
+            placeholder="Leave a message..."
+          />
         </div>
-      </section>
-    </>
+        <div className="add_to_cart pop">
+          <Link to="/cart" className="btn btn-primary">
+            Add to Cart
+          </Link>
+        </div>
+      </div>
+      <br />
+      <br />
+    </div>
   );
 };
 

@@ -4,32 +4,63 @@ const Bind = () => {
   return (
     <>
       <div className="bind  my-5">
-        <h4 className=" dim">Bind Document</h4>
+        <h4 className="fw-bold dim">Bind Document</h4>
         <p>
           Build an easy to read, long lasting, impressive bound book from your
           pdf file with these binding options.
         </p>
-        {/* <h5>Binding *</h5> */}
         <div className="container">
-          <input type="radio" />
-          <label className="mx-1"> Spiral Bound Book</label>
-        </div>
-        <div className="container">
-          <input type="radio" />
-          <label className="mx-1">
-            3 Staples with Plastic Cover and Tape on Spine
-          </label>
-        </div>
-        <div className="container">
-          <input type="radio" />
-          <label className="mx-1"> 2 Staples on Left Edge</label>
-        </div>
-        <div className="container">
-          <input type="radio" />
-          <label className="mx-1"> Loose Leaf ( No Binding )</label>
+          <div className="form-check my-2">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios1"
+              value="spiral bind"
+            />
+            <label className="form-check-label" for="exampleRadios1">
+              Spiral Bind
+            </label>
+          </div>
+          <div className="form-check my-2">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios2"
+              value="plastic cover"
+            />
+            <label className="form-check-label" for="exampleRadios2">
+              Plastic Cover
+            </label>
+          </div>
+          <div className="form-check my-2">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios3"
+              value="Staples only"
+            />
+            <label className="form-check-label" for="exampleRadios3">
+              Staples Only
+            </label>
+          </div>
+          <div className="form-check my-2">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios4"
+              value="Loose"
+            />
+            <label className="form-check-label" for="exampleRadios4">
+              Loose Pages
+            </label>
+          </div>
         </div>
       </div>
-      <hr class="hr hr-blurry" />
+      <hr className="hr hr-blurry" />
     </>
   );
 };
