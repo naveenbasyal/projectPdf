@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const TotalPrices = () => {
   return (
     <div className="totalPrice my-5">
-      <hr class="hr hr-blurry" />
+      <hr className="hr hr-blurry" />
 
       <div className="container my-5 ">
         <h2 className="dim pop fw-bold center">Total Price</h2>

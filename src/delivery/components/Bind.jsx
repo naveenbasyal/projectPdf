@@ -18,7 +18,7 @@ const Bind = () => {
               id="exampleRadios1"
               value="spiral bind"
             />
-            <label className="form-check-label" for="exampleRadios1">
+            <label className="form-check-label" htmlFor="exampleRadios1">
               Spiral Bind
             </label>
           </div>
@@ -30,7 +30,7 @@ const Bind = () => {
               id="exampleRadios2"
               value="plastic cover"
             />
-            <label className="form-check-label" for="exampleRadios2">
+            <label className="form-check-label" htmlFor="exampleRadios2">
               Plastic Cover
             </label>
           </div>
@@ -42,7 +42,7 @@ const Bind = () => {
               id="exampleRadios3"
               value="Staples only"
             />
-            <label className="form-check-label" for="exampleRadios3">
+            <label className="form-check-label" htmlFor="exampleRadios3">
               Staples Only
             </label>
           </div>
@@ -54,7 +54,7 @@ const Bind = () => {
               id="exampleRadios4"
               value="Loose"
             />
-            <label className="form-check-label" for="exampleRadios4">
+            <label className="form-check-label" htmlFor="exampleRadios4">
               Loose Pages
             </label>
           </div>

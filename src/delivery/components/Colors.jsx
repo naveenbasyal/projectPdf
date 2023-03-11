@@ -18,7 +18,7 @@ const Colors = () => {
               id="flexRadioDefault1"
               value="Black and white"
             />
-            <label className="mx-2" for="flexRadioDefault1">
+            <label className="mx-2" htmlFor="flexRadioDefault1">
               Black & White
             </label>
           </div>
@@ -30,7 +30,7 @@ const Colors = () => {
               id="flexRadioDefault2"
               value="Coloured"
             />
-            <label className="mx-2" for="flexRadioDefault2">
+            <label className="mx-2" htmlFor="flexRadioDefault2">
               Coloured
             </label>
           </div>
@@ -42,14 +42,14 @@ const Colors = () => {
               id="flexRadioDefault3"
               value="imagesColouredonly"
             />
-            <label className="mx-2" for="flexRadioDefault3">
+            <label className="mx-2" htmlFor="flexRadioDefault3">
               Only Images Coloured
             </label>
           </div>
         </div>
       </div>
 
-      <hr class="hr hr-blurry" />
+      <hr className="hr hr-blurry" />
     </>
   );
 };

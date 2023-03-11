@@ -16,7 +16,7 @@ const SetupPrint = () => {
         <div className="container my-2">
           <label className="my-2 dim fw-bold">Paper Size</label>
           <select className="form-select">
-            <option selected value="A4">
+            <option defaultValue value="A4">
               A4
             </option>
             <option value="A3">A3</option>
@@ -34,9 +34,9 @@ const SetupPrint = () => {
               name="exampleRadios"
               id="exampleRadios5"
               value="single side"
-              checked
+              defaultChecked
             />
-            <label className="form-check-label" for="exampleRadios5">
+            <label className="form-check-label" htmlFor="exampleRadios5">
               Single Side
             </label>
           </div>
@@ -48,13 +48,13 @@ const SetupPrint = () => {
               id="exampleRadios6"
               value="both side"
             />
-            <label className="form-check-label" for="exampleRadios6">
+            <label className="form-check-label" htmlFor="exampleRadios6">
               Both Side
             </label>
           </div>
         </div>
       </div>
-      <hr class="hr hr-blurry" />
+      <hr className="hr hr-blurry" />
     </>
   );
 };
