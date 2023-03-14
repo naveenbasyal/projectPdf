@@ -2,6 +2,20 @@
 ::-webkit-scrollbar {
   width: 10px;
 }
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #7938f3;
+  --white: #ffffff;
+  --greyLight-1: #e4ebf5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+  --shadow-out: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+    -0.2rem -0.2rem 0.5rem var(--white);
+  --shadow-in: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+    inset -0.2rem -0.2rem 0.5rem var(--white);
+}
 
 ::-webkit-scrollbar-track {
   background-color: #ebebeb;
@@ -15,54 +29,16 @@
   background: #6d6d6d;
 }
 body {
-  background: radial-gradient(
-      97.39% 191.07% at 100% 100%,
-      rgba(255, 255, 255, 0.68) 0%,
-      rgba(255, 255, 255, 0.688) 100%
-    ),
-    radial-gradient(
-      57.84% 66.37% at 28.11% 57.84%,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    radial-gradient(
-      167.59% 313.95% at 0% 0%,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(227, 167, 255, 0.34) 100%
-    ),
-    radial-gradient(
-      160.42% 74.34% at 58.67% 95.08%,
-      rgba(66, 0, 255, 0.16) 0%,
-      rgba(173, 0, 255, 0) 100%
-    ),
-    linear-gradient(106.43deg, rgba(104, 128, 255, 0.35) 5.83%, #a3ffff 95.14%);
-  height: 100vh;
-}
-.bg {
-  background: radial-gradient(
-      97.39% 191.07% at 100% 100%,
-      rgba(255, 255, 255, 0.68) 0%,
-      rgba(255, 255, 255, 0.688) 100%
-    ),
-    radial-gradient(
-      57.84% 66.37% at 28.11% 57.84%,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    radial-gradient(
-      167.59% 313.95% at 0% 0%,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(227, 167, 255, 0.34) 100%
-    ),
-    radial-gradient(
-      160.42% 74.34% at 58.67% 95.08%,
-      rgba(66, 0, 255, 0.16) 0%,
-      rgba(173, 0, 255, 0) 100%
-    ),
-    linear-gradient(106.43deg, rgba(104, 128, 255, 0.35) 5.83%, #a3ffff 95.14%);
+  background: var(--greyLight-1);
 }
 .dim {
-  color: rgba(10, 28, 87, 0.75);
+  color: var(--primary-dark);
+}
+.shadow-out {
+  box-shadow: var(--shadow-out);
+}
+.shadow-in {
+  box-shadow: var(--shadow-in);
 }
 .pop {
   font-family: "Poppins", sans-serif;
@@ -73,7 +49,4 @@ body {
 .center {
   display: grid;
   place-items: center;
-}
-.shadow-out {
-  box-shadow: 5px 5px 10px rgba(163,177,198,0.5), -5px -5px 10px rgba(255, 255, 255, 0.6);
 }

@@ -3,29 +3,7 @@
   padding: 1rem 3rem;
   color: rgba(0, 0, 0, 0.76);
 }
-body {
-  background: radial-gradient(
-      97.39% 191.07% at 100% 100%,
-      rgba(255, 255, 255, 0.68) 0%,
-      rgba(255, 255, 255, 0.688) 100%
-    ),
-    radial-gradient(
-      57.84% 66.37% at 28.11% 57.84%,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    radial-gradient(
-      167.59% 313.95% at 0% 0%,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(227, 167, 255, 0.34) 100%
-    ),
-    radial-gradient(
-      160.42% 74.34% at 58.67% 95.08%,
-      rgba(66, 0, 255, 0.16) 0%,
-      rgba(173, 0, 255, 0) 100%
-    ),
-    linear-gradient(106.43deg, rgba(104, 128, 255, 0.35) 5.83%, #a3ffff 95.14%);
-}
+
 input {
   cursor: pointer;
 }
@@ -38,6 +16,55 @@ input {
 }
 .totalPrice .container {
   width: 40%;
+}
+.choosefile {
+  background: var(--greyLight-1);
+}
+.choosefile:active,
+.choosefile:focus {
+  box-shadow: var(--shadow-in);
+  background: var(--greyLight-1);
+  outline: none;
+}
+.headerImage {
+  border-radius: 0.8rem !important;
+}
+
+.pdfImg {
+  width: 8rem;
+}
+.add_to_cart {
+  background: var(--primary-dark);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 0.6rem;
+}
+
+.form-check-input:focus,
+.form-check-input:active {
+  outline: none !important;
+  box-shadow: none !important;
+  
+}
+.instructions{
+  box-shadow: var(--shadow-in);
+  background: var(--greyLight-1);
+}
+.form-control:checked{
+  box-shadow: none!important;
+  background: red;
+}
+.form-control:focus,
+.form-control:active {
+  outline: none !important;
+  background: var(--greyLight-1);
+  box-shadow: var(--shadow-out) !important;
+  border: none;
+  
+}
+.form-check-input:checked{
+  background-color: var(--primary);
 }
 
 @media screen and (max-width: 450px) {

@@ -5,7 +5,7 @@ import React from "react";
 // import ExtractImages from "./tools/ExtractPages";
 // import PdfMaker from "./tools/PdfMaker";
 // import RemovePages from "./tools/RemovePages";
-import LandingPage from "./Pages/LandingPage";
+import Home from "./Pages/Home";
 import Delivery from "./delivery/Delivery";
 import {
   BrowserRouter as Router,
@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Cart from "./cart/cart";
+import Tools from "./Pages/Tools";
 
 const App = () => {
   return (
@@ -22,8 +23,9 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/delivery" element={<Delivery />} />
+          <Route path="/tools" element={<Tools />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>

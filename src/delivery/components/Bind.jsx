@@ -3,64 +3,40 @@ import React from "react";
 const Bind = () => {
   return (
     <>
-      <div className="bind  my-5">
-        <h4 className="fw-bold dim">Bind Document</h4>
-        <p>
-          Build an easy to read, long lasting, impressive bound book from your
-          pdf file with these binding options.
-        </p>
-        <div className="container">
-          <div className="form-check my-2">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios1"
-              value="spiral bind"
-            />
-            <label className="form-check-label" htmlFor="exampleRadios1">
-              Spiral Bind
-            </label>
+      <div className="d-flex my-3 row bind">
+        <div className="col-lg-3">
+          <span className="fw-bold mx-4">Bindings:</span>
+        </div>
+        <div className="col-lg-9 d-flex">
+          <div className="col-lg-5">
+            <div className="form-check mx-3">
+              <input
+                className="form-check-input "
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
+              <label className="form-check-label" for="flexCheckDefault">
+                Spiral Binding
+              </label>
+            </div>
           </div>
-          <div className="form-check my-2">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios2"
-              value="plastic cover"
-            />
-            <label className="form-check-label" htmlFor="exampleRadios2">
-              Plastic Cover
-            </label>
-          </div>
-          <div className="form-check my-2">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios3"
-              value="Staples only"
-            />
-            <label className="form-check-label" htmlFor="exampleRadios3">
-              Staples Only
-            </label>
-          </div>
-          <div className="form-check my-2">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios4"
-              value="Loose"
-            />
-            <label className="form-check-label" htmlFor="exampleRadios4">
-              Loose Pages
-            </label>
+          <div className="col-lg-5">
+            <div className="form-check mx-3">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
+              <label className="form-check-label" for="flexCheckDefault">
+                Plastic Cover
+              </label>
+            </div>
           </div>
         </div>
       </div>
-      <hr className="hr hr-blurry" />
+      {/* <hr className="hr hr-blurry" /> */}
     </>
   );
 };

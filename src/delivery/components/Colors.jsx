@@ -1,57 +1,43 @@
 import React from "react";
 
-const Colors = () => {
+const SetupPrint = () => {
   return (
     <>
-      <div className="colors  my-5">
-        <h4 className="dim fw-bold"> Colors</h4>
-        <p className="">
-          Choose the color of your printout. If you are printing a black and
-          white document, you can choose the color of the paper.
-        </p>
-        <div className="container">
-          <div className="my-2">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-              value="Black and white"
-            />
-            <label className="mx-2" htmlFor="flexRadioDefault1">
-              Black & White
-            </label>
+      <div className="d-flex my-3 setup row">
+        <div className="col-lg-3">
+          <span className="fw-bold mx-4">Colors:</span>
+        </div>
+        <div className="col-lg-9 d-flex ">
+          <div className="col-lg-5 ">
+            <div className="form-check mx-3">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
+              <label className="form-check-label" for="flexCheckDefault">
+                Black & White
+              </label>
+            </div>
           </div>
-          <div className=" my-2">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault2"
-              value="Coloured"
-            />
-            <label className="mx-2" htmlFor="flexRadioDefault2">
-              Coloured
-            </label>
-          </div>
-          <div className=" my-2 ">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault3"
-              value="imagesColouredonly"
-            />
-            <label className="mx-2" htmlFor="flexRadioDefault3">
-              Only Images Coloured
-            </label>
+          <div className="col-lg-5">
+            <div className="form-check mx-3">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
+              <label className="form-check-label" for="flexCheckDefault">
+                Coloured
+              </label>
+            </div>
           </div>
         </div>
       </div>
-
-      <hr className="hr hr-blurry" />
     </>
   );
 };
 
-export default Colors;
+export default SetupPrint;
