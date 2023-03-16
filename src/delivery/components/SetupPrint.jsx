@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SetupPrint = () => {
+  const [singleSide, setSingleSide] = useState(false);
+  const [bothside, setBothSide] = useState(false);
+
+  const handleSingleChange = () => {
+    setSingleSide(true);
+    setBothSide(false);
+  };
+  const handleBothChange = () => {
+    setSingleSide(false);
+    setBothSide(true);
+  };
   return (
     <>
       <div className="d-flex my-3 setup row">
@@ -14,9 +25,11 @@ const SetupPrint = () => {
                 className="form-check-input"
                 type="checkbox"
                 value=""
+                checked={singleSide}
+                onChange={handleSingleChange}
                 id="flexCheckDefault"
               />
-              <label className="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="flexCheckDefault">
                 Single Side
               </label>
             </div>
@@ -24,12 +37,14 @@ const SetupPrint = () => {
           <div className="col-lg-5">
             <div className="form-check mx-3">
               <input
+                checked={bothside}
+                onChange={handleBothChange}
                 className="form-check-input"
                 type="checkbox"
                 value=""
                 id="flexCheckDefault"
               />
-              <label className="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="flexCheckDefault">
                 Both Side
               </label>
             </div>

@@ -45,14 +45,39 @@ input {
 .form-check-input:active {
   outline: none !important;
   box-shadow: none !important;
-  
 }
-.instructions{
+.instructions {
   box-shadow: var(--shadow-in);
   background: var(--greyLight-1);
 }
-.form-control:checked{
-  box-shadow: none!important;
+/* --------copies---------- */
+.copies input {
+  width: 3rem;
+  background: var(--greyLight-1);
+  border: none;
+}
+.copies button {
+  background: var(--greyLight-1);
+  width: 2rem;
+  border-radius: 6px;
+  height: 2rem;
+  border: none;
+}
+.eye{
+  background: var(--greyLight-1);
+  width: 2rem;
+  border-radius: 6px;
+  height: 2rem;
+  border: none;
+}
+.eye:active{
+  box-shadow: var(--shadow-in);
+}
+.copies button:active{
+  box-shadow: var(--shadow-in);
+}
+.form-control:checked {
+  box-shadow: none !important;
   background: red;
 }
 .form-control:focus,
@@ -61,9 +86,8 @@ input {
   background: var(--greyLight-1);
   box-shadow: var(--shadow-out) !important;
   border: none;
-  
 }
-.form-check-input:checked{
+.form-check-input:checked {
   background-color: var(--primary);
 }
 

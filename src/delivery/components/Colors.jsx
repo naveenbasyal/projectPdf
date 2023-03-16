@@ -1,6 +1,17 @@
-import React from "react";
+import React,{useState} from "react";
 
 const SetupPrint = () => {
+  const [blackWhite, setBlackWhite] = useState(false);
+  const [coloured, setColoured] = useState(false);
+
+  const handleBlackWhite = () => {
+    setBlackWhite(true);
+    setColoured(false);
+  };
+  const handleColoured = () => {
+    setBlackWhite(false);
+    setColoured(true);
+  };
   return (
     <>
       <div className="d-flex my-3 setup row">
@@ -14,9 +25,11 @@ const SetupPrint = () => {
                 className="form-check-input"
                 type="checkbox"
                 value=""
+                checked={blackWhite}
+                onChange={handleBlackWhite}
                 id="flexCheckDefault"
               />
-              <label className="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="flexCheckDefault">
                 Black & White
               </label>
             </div>
@@ -27,9 +40,11 @@ const SetupPrint = () => {
                 className="form-check-input"
                 type="checkbox"
                 value=""
+                checked={coloured}
+                onChange={handleColoured}
                 id="flexCheckDefault"
               />
-              <label className="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="flexCheckDefault">
                 Coloured
               </label>
             </div>

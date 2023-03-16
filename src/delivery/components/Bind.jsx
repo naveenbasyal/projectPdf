@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Bind = () => {
+  const [spiralBinding, setSpiralBinding] = useState(false);
+  const [plasticCover, setPlasticCover] = useState(false);
+
+  const handleSpiralBindingChange = () => {
+    setSpiralBinding(true);
+    setPlasticCover(false);
+  };
+
+  const handlePlasticCoverChange = () => {
+    setPlasticCover(true);
+    setSpiralBinding(false);
+  };
+
   return (
     <>
       <div className="d-flex my-3 row bind">
@@ -11,12 +24,13 @@ const Bind = () => {
           <div className="col-lg-5">
             <div className="form-check mx-3">
               <input
-                className="form-check-input "
+                className="form-check-input"
                 type="checkbox"
-                value=""
-                id="flexCheckDefault"
+                checked={spiralBinding}
+                onChange={handleSpiralBindingChange}
+                id="spiralBinding"
               />
-              <label className="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="spiralBinding">
                 Spiral Binding
               </label>
             </div>
@@ -26,17 +40,17 @@ const Bind = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
-                id="flexCheckDefault"
+                checked={plasticCover}
+                onChange={handlePlasticCoverChange}
+                id="plasticCover"
               />
-              <label className="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="plasticCover">
                 Plastic Cover
               </label>
             </div>
           </div>
         </div>
       </div>
-      {/* <hr className="hr hr-blurry" /> */}
     </>
   );
 };

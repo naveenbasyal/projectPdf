@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BindingCharges from "./Charges/BindingCharges";
+
 import PaperCharges from "./Charges/PrintingCharges";
 import TotalPrices from "./Charges/TotalPrices";
 import { Link } from "react-router-dom";
@@ -13,9 +14,15 @@ const Delivery = () => {
   const [selectedFiles, setSelectedFiles] = useState({});
   const [totalFiles, setTotalFiles] = useState(0);
   const [error, setError] = useState("");
-
+  const [copies, setCopies] = useState(1);
+  const [fileUrl, setFileUrl] = useState("");
+  const [ShowPdf, setShowPdf] = useState(false);
+  
   const handleFileChange = (e) => {
     const files = e.target.files;
+    const url = e.target.files[0]; //----Url of file
+    const fileUrl = URL.createObjectURL(url);
+    setFileUrl(fileUrl); //   file url
     const fileArray = Array.from(files);
     setSelectedFiles({}); // reset purana file ka info
     setTotalFiles(fileArray.length); // set total files
@@ -54,6 +61,8 @@ const Delivery = () => {
           });
         });
       };
+
+      // console.log(file);
     });
   };
   //  ----------- Delete the selected File-------------
@@ -63,6 +72,19 @@ const Delivery = () => {
     setSelectedFiles(newFiles);
     setTotalFiles(totalFiles - 1);
   };
+  const handlePlusButton = () => {
+    setCopies(copies + 1);
+  };
+  const handleMinusButton = () => {
+    if (copies > 1) {
+      setCopies(copies - 1);
+    }
+  };
+  const showPdf = () => {
+    if (!ShowPdf) {
+      setShowPdf(true);
+    }
+  };
 
   return (
     <>
@@ -71,7 +93,7 @@ const Delivery = () => {
         <DeliveryHeader />
         {/* ------------Main Delivery section---------- */}
         <div className="row mx-5 pop main_delivery_section">
-          <h2 className="my-4 fw-bold dim px-5">Order Document</h2>
+          <h2 className="my-4 fw-bold dim px-5 ms-3">Order Document</h2>
           {/* -------Choose File----------- */}
           <div className="col-lg-8 col-sm-12 px-5 Options">
             <div className="">
@@ -80,12 +102,15 @@ const Delivery = () => {
                 className="form-control form-control-lg choosefile shadow-in"
                 id="formFileLg"
                 type="file"
-                onChange={handleFileChange} // call handleFileChange on file selection
+                onChange={handleFileChange}
               />
               {error && (
-                <div className="container py-5">
-                  <span className="py-2 text-danger">{error} </span><br />
-                  <Link to='/tools' className="dim">Convert to pdf ?</Link>
+                <div className="container center py-5">
+                  <span className="p-2 text-danger shadow-in">{error} </span>
+                  <br />
+                  <Link to="/tools" className="dim">
+                    Convert to pdf ?
+                  </Link>
                 </div>
               )}
 
@@ -95,7 +120,7 @@ const Delivery = () => {
                   Total Files Selected: {totalFiles}
                 </span>
               </div>
-              {/* ------------Main Content-------- */}
+              {/* ------------------------Main Content------------------- */}
               {Object.keys(selectedFiles).length === 0 ? (
                 <div className="container my-5 center py-5">
                   <span className="fs-3 py-5 text-danger">
@@ -108,11 +133,33 @@ const Delivery = () => {
                     <div>
                       <div key={name} className="my-5 row">
                         <div className="col-lg-3 center">
+                          {/* ------Thumbnail---------- */}
                           <img
                             src={file.imageDataUri}
                             className="img-fluid pdfImg shadow-out p-1"
                             alt=""
                           />
+                          {/* ---------Copies------ */}
+                          <div className="copies d-flex">
+                            <button
+                              onClick={handleMinusButton}
+                              className="center shadow-out "
+                            >
+                              -
+                            </button>
+                            <input
+                              type="text"
+                              value={copies}
+                              onChange={(e) => setCopies(e.target.value)}
+                              className="center shadow-in px-2 mx-2 form-control"
+                            />
+                            <button
+                              onClick={handlePlusButton}
+                              className=" shadow-out"
+                            >
+                              +
+                            </button>
+                          </div>
                         </div>
                         <div className="col-lg-7 py-3">
                           <h4 className="dim fs-5">
@@ -130,8 +177,16 @@ const Delivery = () => {
                               onClick={() => handleDeleteFile(name)}
                             ></i>
                           </button>
+                          <button
+                            className="dim mt-5 eye px-2 center shadow-out"
+                            onClick={showPdf}
+                          >
+                            <i className="fa fa-eye" aria-hidden="true"></i>
+                          </button>
                         </div>
                       </div>
+                      {ShowPdf && <iframe src={fileUrl} />}
+
                       <hr className="hr hr-blurry" />
                     </div>
                   ))}

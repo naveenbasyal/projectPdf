@@ -33,3 +33,4 @@ const TotalPrices = () => {
 };
 
 export default TotalPrices;
+
