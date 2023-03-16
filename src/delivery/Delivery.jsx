@@ -17,7 +17,7 @@ const Delivery = () => {
   const [copies, setCopies] = useState(1);
   const [fileUrl, setFileUrl] = useState("");
   const [ShowPdf, setShowPdf] = useState(false);
-  
+
   const handleFileChange = (e) => {
     const files = e.target.files;
     const url = e.target.files[0]; //----Url of file
@@ -80,11 +80,6 @@ const Delivery = () => {
       setCopies(copies - 1);
     }
   };
-  const showPdf = () => {
-    if (!ShowPdf) {
-      setShowPdf(true);
-    }
-  };
 
   return (
     <>
@@ -97,13 +92,16 @@ const Delivery = () => {
           {/* -------Choose File----------- */}
           <div className="col-lg-8 col-sm-12 px-5 Options">
             <div className="">
-              <input
-                multiple
-                className="form-control form-control-lg choosefile shadow-in"
-                id="formFileLg"
-                type="file"
-                onChange={handleFileChange}
-              />
+              <label htmlFor="formFileLg" className="u-f-b">
+                Upload Files
+                <input
+                  multiple
+                  className="form-control form-control-lg choosefile shadow-in hidden"
+                  id="formFileLg"
+                  type="file"
+                  onChange={handleFileChange} // call handleFileChange on file selection
+                />
+              </label>
               {error && (
                 <div className="container center py-5">
                   <span className="p-2 text-danger shadow-in">{error} </span>
@@ -179,13 +177,13 @@ const Delivery = () => {
                           </button>
                           <button
                             className="dim mt-5 eye px-2 center shadow-out"
-                            onClick={showPdf}
+                            // onClick={showPdf}
                           >
                             <i className="fa fa-eye" aria-hidden="true"></i>
                           </button>
                         </div>
                       </div>
-                      {ShowPdf && <iframe src={fileUrl} />}
+                      {/* {ShowPdf && <iframe src={fileUrl} />} */}
 
                       <hr className="hr hr-blurry" />
                     </div>

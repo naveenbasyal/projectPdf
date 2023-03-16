@@ -1,17 +1,23 @@
-import React,{useState} from "react";
+// <<<<<<< HEAD
+// import React,{useState} from "react";
+
+// const SetupPrint = () => {
+//   const [blackWhite, setBlackWhite] = useState(false);
+//   const [coloured, setColoured] = useState(false);
+
+//   const handleBlackWhite = () => {
+//     setBlackWhite(true);
+//     setColoured(false);
+//   };
+//   const handleColoured = () => {
+//     setBlackWhite(false);
+//     setColoured(true);
+//   };
+// =======
+import React, { useState } from "react";
 
 const SetupPrint = () => {
-  const [blackWhite, setBlackWhite] = useState(false);
-  const [coloured, setColoured] = useState(false);
-
-  const handleBlackWhite = () => {
-    setBlackWhite(true);
-    setColoured(false);
-  };
-  const handleColoured = () => {
-    setBlackWhite(false);
-    setColoured(true);
-  };
+  const [color, setColor] = useState('bw')
   return (
     <>
       <div className="d-flex my-3 setup row">
@@ -19,7 +25,7 @@ const SetupPrint = () => {
           <span className="fw-bold mx-4">Colors:</span>
         </div>
         <div className="col-lg-9 d-flex ">
-          <div className="col-lg-5 ">
+          {/* <div className="col-lg-5 ">
             <div className="form-check mx-3">
               <input
                 className="form-check-input"
@@ -48,6 +54,23 @@ const SetupPrint = () => {
                 Coloured
               </label>
             </div>
+          </div> */}
+          <div className={
+            color === 'bw' ? "bwBox active" : "bwBox"
+          }
+            title="Black and White"
+            onClick={() => setColor('bw')}
+          >
+
+          </div>
+          <div className={
+            color === 'color' ? "colorBox active" : "colorBox"
+          }
+
+            title="Coloured"
+            onClick={() => setColor('color')}
+          >
+
           </div>
         </div>
       </div>

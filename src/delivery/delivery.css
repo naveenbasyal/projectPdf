@@ -90,7 +90,72 @@ input {
 .form-check-input:checked {
   background-color: var(--primary);
 }
+.u-f-b{
+  padding: 10px 20px;
+  background: var(--primary);
+  color: var(--greyLight-1);
+  cursor: pointer;
+  border-radius: 5px;
+}
 
+.u-f-b input{
+  display: none;
+}
+.colorBox{
+  width: 25px;
+  height: 25px;
+  border-radius: 10%;
+  margin: 0 5px;
+  cursor: pointer;
+  background: 
+  linear-gradient(to left bottom, #ff0000 0%, #ff0000 25%, #ffff00 25%, #ffff00 50%, #00ff00 50%, #00ff00 75%, #0000ff 75%, #0000ff 100%);
+  ;
+}
+.bwBox{
+  width: 25px;
+  height: 25px;
+  border-radius: 10%;
+  margin: 0 5px;
+  cursor: pointer;
+  background: 
+  linear-gradient(to left bottom,
+  black 50%,
+  white 50%
+  );
+  ;
+}
+.colorBox:hover,
+.bwBox:hover{
+  opacity: 0.8;
+}
+
+.colorBox.active , .bwBox.active{
+  /* border: 2px solid var(--primary); */
+    outline: 2px solid var(--primary);
+      outline-offset: 1px;
+     scale: 1.1;
+
+}
+.pageBox{
+  width: 40px;
+  height: 40px;
+  border-radius: 10%;
+  cursor: pointer;
+  font-size: 2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(128, 128, 128, 0.444);
+  margin-right: 5px;
+}
+.pageBox:hover{
+  opacity: 0.8;
+}
+.pageBox.active{
+ color: var(--primary);
+ background: white;
+ outline: 2px solid var(--primary);
+}
 @media screen and (max-width: 450px) {
   .delivery_header {
     margin: 2rem 1rem;
