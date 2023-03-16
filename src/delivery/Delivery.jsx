@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import BindingCharges from "./Charges/BindingCharges";
-
 import PaperCharges from "./Charges/PrintingCharges";
 import TotalPrices from "./Charges/TotalPrices";
 import { Link } from "react-router-dom";
@@ -14,18 +13,15 @@ const Delivery = () => {
   const [selectedFiles, setSelectedFiles] = useState({});
   const [totalFiles, setTotalFiles] = useState(0);
   const [error, setError] = useState("");
-  const [copies, setCopies] = useState(1);
-  const [fileUrl, setFileUrl] = useState("");
-  const [ShowPdf, setShowPdf] = useState(false);
+  const [copies, setCopies] = useState([]);
+  // const [selectedPdfIndex, setSelectedPdfIndex] = useState(null);
 
   const handleFileChange = (e) => {
     const files = e.target.files;
-    const url = e.target.files[0]; //----Url of file
-    const fileUrl = URL.createObjectURL(url);
-    setFileUrl(fileUrl); //   file url
     const fileArray = Array.from(files);
     setSelectedFiles({}); // reset purana file ka info
     setTotalFiles(fileArray.length); // set total files
+
     fileArray.forEach((file) => {
       if (!file.name.endsWith(".pdf")) {
         // check if file is not a PDF
@@ -61,10 +57,9 @@ const Delivery = () => {
           });
         });
       };
-
-      // console.log(file);
     });
   };
+
   //  ----------- Delete the selected File-------------
   const handleDeleteFile = (name) => {
     const newFiles = { ...selectedFiles };
@@ -72,12 +67,18 @@ const Delivery = () => {
     setSelectedFiles(newFiles);
     setTotalFiles(totalFiles - 1);
   };
-  const handlePlusButton = () => {
-    setCopies(copies + 1);
+
+  const handlePlusButton = (index) => {
+    const newCopies = [...copies];
+    newCopies[index] = newCopies[index] ? newCopies[index] + 1 : 1;
+    setCopies(newCopies);
   };
-  const handleMinusButton = () => {
-    if (copies > 1) {
-      setCopies(copies - 1);
+
+  const handleMinusButton = (index) => {
+    const newCopies = [...copies];
+    if (newCopies[index] && newCopies[index] > 1) {
+      newCopies[index] = newCopies[index] - 1;
+      setCopies(newCopies);
     }
   };
 
@@ -127,7 +128,7 @@ const Delivery = () => {
                 </div>
               ) : (
                 <div>
-                  {Object.entries(selectedFiles).map(([name, file]) => (
+                  {Object.entries(selectedFiles).map(([name, file], index) => (
                     <div>
                       <div key={name} className="my-5 row">
                         <div className="col-lg-3 center">
@@ -140,19 +141,24 @@ const Delivery = () => {
                           {/* ---------Copies------ */}
                           <div className="copies d-flex">
                             <button
-                              onClick={handleMinusButton}
+                              onClick={handleMinusButton(index)}
                               className="center shadow-out "
                             >
                               -
                             </button>
                             <input
                               type="text"
-                              value={copies}
-                              onChange={(e) => setCopies(e.target.value)}
+                              value={copies[index] || ""}
+                              onChange={(e) => {
+                                const newCopies = [...copies];
+                                newCopies[index] =
+                                  parseInt(e.target.value) || "";
+                                setCopies(newCopies);
+                              }}
                               className="center shadow-in px-2 mx-2 form-control"
                             />
                             <button
-                              onClick={handlePlusButton}
+                              onClick={handlePlusButton(index)}
                               className=" shadow-out"
                             >
                               +
@@ -175,15 +181,14 @@ const Delivery = () => {
                               onClick={() => handleDeleteFile(name)}
                             ></i>
                           </button>
-                          <button
+                          {/* <button
                             className="dim mt-5 eye px-2 center shadow-out"
-                            // onClick={showPdf}
+                            // onClick={() => handlePdfSelect(index)}
                           >
                             <i className="fa fa-eye" aria-hidden="true"></i>
-                          </button>
+                          </button> */}
                         </div>
                       </div>
-                      {/* {ShowPdf && <iframe src={fileUrl} />} */}
 
                       <hr className="hr hr-blurry" />
                     </div>

@@ -20,6 +20,9 @@ const Navbar = () => {
           <Link to="/cart" className="links">
             Cart
           </Link>
+          <Link to="/auth" className="links">
+            Login / Signup
+          </Link>
         </div>
       </div>
     </>

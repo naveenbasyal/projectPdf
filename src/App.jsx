@@ -1,10 +1,5 @@
 import React from "react";
-// import ViewPdf from "./tools/ViewPdf";
-// import Merge from "./tools/Merge";
-// import Img2Pdf from "./tools/Img2Pdf";
-// import ExtractImages from "./tools/ExtractPages";
-// import PdfMaker from "./tools/PdfMaker";
-// import RemovePages from "./tools/RemovePages";
+
 import Home from "./Pages/Home";
 import Delivery from "./delivery/Delivery";
 import {
@@ -16,6 +11,7 @@ import {
 import Navbar from "./components/Navbar";
 import Cart from "./cart/cart";
 import Tools from "./Pages/Tools";
+import Auth from "./Auth/Auth";
 
 const App = () => {
   return (
@@ -27,6 +23,7 @@ const App = () => {
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/tools" element={<Tools />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/auth" element={<Auth />} />
         </Routes>
       </BrowserRouter>
     </>
