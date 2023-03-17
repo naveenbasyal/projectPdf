@@ -12,8 +12,4 @@ In Progress :
  - Compress Your pdf
  - Edit pdf
  - Protect you pdf
-<<<<<<< HEAD
  
-=======
- 
->>>>>>> 56724154251d422a0f9e6592de80b86ee7e8afaa
