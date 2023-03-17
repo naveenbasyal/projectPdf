@@ -34,17 +34,27 @@ input {
   width: 8rem;
 }
 .add_to_cart {
-  background: var(--primary-dark);
-  color: #ffffff;
+  background: var(--greyLight-1);
   text-decoration: none;
   border-radius: 6px;
   padding: 0.6rem;
+  transition: .2s ease;
 }
+.add_to_cart:hover {
+  color: var(--primary);
+  transform: scale(.9);
 
+}
+.optionIcon{
+  /* justify-content: space-evenly; */
+}
 .form-check-input:focus,
 .form-check-input:active {
   outline: none !important;
   box-shadow: none !important;
+}
+label{
+  cursor: pointer;
 }
 .instructions {
   box-shadow: var(--shadow-in);

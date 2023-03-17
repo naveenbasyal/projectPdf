@@ -48,7 +48,9 @@
   transform: scale(0.95);
   box-shadow: var(--shadow-in);
 }
-
+.social:hover{
+  color: var(--primary);
+}
 .auth button:focus {
   outline: none;
 }

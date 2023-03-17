@@ -1,23 +1,18 @@
-// <<<<<<< HEAD
-// import React,{useState} from "react";
-
-// const SetupPrint = () => {
-//   const [blackWhite, setBlackWhite] = useState(false);
-//   const [coloured, setColoured] = useState(false);
-
-//   const handleBlackWhite = () => {
-//     setBlackWhite(true);
-//     setColoured(false);
-//   };
-//   const handleColoured = () => {
-//     setBlackWhite(false);
-//     setColoured(true);
-//   };
-// =======
 import React, { useState } from "react";
 
 const SetupPrint = () => {
-  const [color, setColor] = useState('bw')
+  const [blackWhite, setBlackWhite] = useState(false);
+  const [coloured, setColoured] = useState(false);
+
+  const handleBlackWhite = () => {
+    setBlackWhite(true);
+    setColoured(false);
+  };
+  const handleColoured = () => {
+    setBlackWhite(false);
+    setColoured(true);
+  };
+  // const [color, setColor] = useState('bw')
   return (
     <>
       <div className="d-flex my-3 setup row">
@@ -25,7 +20,7 @@ const SetupPrint = () => {
           <span className="fw-bold mx-4">Colors:</span>
         </div>
         <div className="col-lg-9 d-flex ">
-          {/* <div className="col-lg-5 ">
+          <div className="col-lg-5 ">
             <div className="form-check mx-3">
               <input
                 className="form-check-input"
@@ -33,9 +28,9 @@ const SetupPrint = () => {
                 value=""
                 checked={blackWhite}
                 onChange={handleBlackWhite}
-                id="flexCheckDefault"
+                id="bw"
               />
-              <label className="form-check-label" htmlFor="flexCheckDefault">
+              <label className="form-check-label" htmlFor="bw">
                 Black & White
               </label>
             </div>
@@ -48,15 +43,15 @@ const SetupPrint = () => {
                 value=""
                 checked={coloured}
                 onChange={handleColoured}
-                id="flexCheckDefault"
+                id="cl"
               />
-              <label className="form-check-label" htmlFor="flexCheckDefault">
+              <label className="form-check-label" htmlFor="cl">
                 Coloured
               </label>
             </div>
-          </div> */}
-          <div className={
-            color === 'bw' ? "bwBox active" : "bwBox"
+          </div>
+          {/* <div className={
+            `bwBox mx-4 ${color === 'bw' ? "active" : ""}`
           }
             title="Black and White"
             onClick={() => setColor('bw')}
@@ -64,14 +59,14 @@ const SetupPrint = () => {
 
           </div>
           <div className={
-            color === 'color' ? "colorBox active" : "colorBox"
+            `colorBox mx-4 ${color === 'color' ? "active" : ""}`
           }
 
             title="Coloured"
             onClick={() => setColor('color')}
           >
 
-          </div>
+          </div> */}
         </div>
       </div>
     </>

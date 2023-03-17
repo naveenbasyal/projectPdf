@@ -22,14 +22,14 @@ const LoginSignUp = () => {
         id="container"
       >
         <div className="form-container sign-up-container">
-          <form >
-            <h1 className="fs-3">Create Account</h1>
+          <form>
+            <h1 className="fs-4 stroke jsf p-1 ls-1">Create Account</h1>
             <div className="social-container">
-              <a href="#" className="social">
-                <i className="fab fa-facebook-f"></i>
+              <a href="#" className="social ">
+                <i className="fab fa-facebook-f "></i>
               </a>
               <a href="#" className="social">
-                <i className="fab fa-google-plus-g"></i>
+                <i className="fab fa-google-plus-g "></i>
               </a>
               <a href="#" className="social">
                 <i className="fab fa-linkedin-in"></i>
@@ -55,8 +55,8 @@ const LoginSignUp = () => {
           </form>
         </div>
         <div className="form-container sign-in-container">
-          <form action="#">
-            <h1>Sign in</h1>
+          <form>
+            <h1 className="stroke ls-1 jsf p-1">Sign in</h1>
             <div className="social-container">
               <a href="#" className="social">
                 <i className="fab fa-facebook-f"></i>

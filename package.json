@@ -21,6 +21,7 @@
     "docx": "^7.8.2",
     "docx-pdf": "^0.0.1",
     "file-saver": "^2.0.5",
+    "framer-motion": "^10.5.0",
     "html-to-pdfmake": "^2.4.16",
     "jspdf": "^2.5.1",
     "libreoffice-convert": "^1.4.1",

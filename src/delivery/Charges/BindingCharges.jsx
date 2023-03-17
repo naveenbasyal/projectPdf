@@ -1,16 +1,26 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 const BindingCharges = () => {
   return (
     <>
-      <table className="table my-5">
+      <motion.table
+        initial={{ x: "100vw" }}
+        animate={{ x: 0 }}
+        transition={{
+          duration: 0.6,
+          type: "spring",
+          bounce: 0.6,
+          // damping: 5,
+        }}
+        className="table my-5"
+      >
         <thead>
           <tr>
             <th scope="col" className="fw-bold dim">
               Binding
             </th>
             <th scope="col" className="dim">
-              Price
+              <i class="p-1 stroke fa-solid fa-hand-holding-dollar"></i>
             </th>
           </tr>
         </thead>
@@ -32,7 +42,7 @@ const BindingCharges = () => {
             <td>₹0.00 </td>
           </tr>
         </tbody>
-      </table>
+      </motion.table>
     </>
   );
 };

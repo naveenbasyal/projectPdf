@@ -1,7 +1,7 @@
-import React from "react";
-
-import Home from "./Pages/Home";
-import Delivery from "./delivery/Delivery";
+import React, { useContext } from "react";
+import DotRing from "./CustomMouse/DotRing/DotRing";
+import { motion, useScroll } from "framer-motion";
+import Delivery from "./Pages/Delivery";
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,22 +9,29 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Cart from "./cart/cart";
+import Cart from "./Pages/cart";
 import Tools from "./Pages/Tools";
 import Auth from "./Auth/Auth";
 
 const App = () => {
+  const { scrollYProgress } = useScroll();
   return (
     <>
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/delivery" element={<Delivery />} />
-          <Route path="/tools" element={<Tools />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/auth" element={<Auth />} />
-        </Routes>
+        <motion.div
+          className="progress-bar"
+          style={{ scaleX: scrollYProgress }}
+        />
+        <DotRing />
+        <div>
+          <Routes>
+            <Route path="/" element={<Delivery />} />
+            <Route path="/tools" element={<Tools />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/auth" element={<Auth />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </>
   );

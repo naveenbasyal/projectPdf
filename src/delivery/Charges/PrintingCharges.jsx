@@ -1,13 +1,27 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 const PaperCharges = () => {
   return (
     <>
-      <table className="table">
+      <motion.table
+        initial={{ x: "100vw" }}
+        animate={{ x: 0 }}
+        transition={{
+          duration: 0.6,
+          type: "spring",
+          bounce: 0.5,
+          // damping: 5,
+        }}
+        className="table"
+      >
         <thead>
           <tr>
-            <th scope="col" className="dim">Printing</th>
-            <th scope="col" className="dim">Price</th>
+            <th scope="col" className="dim" title="print">
+              <i class="p-1 stroke fa-sharp fa-solid fa-print"></i>
+            </th>
+            <th scope="col" className="dim">
+              <i class="stroke p-1 fa-solid fa-hand-holding-dollar"></i>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -28,7 +42,7 @@ const PaperCharges = () => {
             <td>₹10.00 </td>
           </tr>
         </tbody>
-      </table>
+      </motion.table>
     </>
   );
 };

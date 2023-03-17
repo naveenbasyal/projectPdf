@@ -1,19 +1,30 @@
 
-import React from "react";
+import React,{useState} from "react";
 import { SiPowerpages } from 'react-icons/si'
 import { FaFilePdf } from 'react-icons/fa'
 import { AiOutlineFileAdd } from 'react-icons/ai'
 import { BsFillFileFill } from 'react-icons/bs'
 const SetupPrint = () => {
-  const [page, setPage] = React.useState('single')
+  // const [page, setPage] = React.useState('single')
+  const [singleSide, setSingleSide] = useState(false);
+  const [bothside, setBothSide] = useState(false);
+
+  const handleSingleChange = () => {
+    setSingleSide(true);
+    setBothSide(false);
+  };
+  const handleBothChange = () => {
+    setSingleSide(false);
+    setBothSide(true);
+  };
   return (
     <>
       <div className="d-flex my-3 setup row">
         <div className="col-lg-3">
-          <span className="fw-bold mx-4">Page :</span>
+          <span className="fw-bold mx-4">Sides:</span>
         </div>
-        <div className="col-lg-9 d-flex ">
-          {/* <div className="col-lg-5 ">
+        <div className="col-lg-9 d-flex optionIcon">
+          <div className="col-lg-5 ">
             <div className="form-check mx-3">
               <input
                 className="form-check-input"
@@ -21,9 +32,9 @@ const SetupPrint = () => {
                 value=""
                 checked={singleSide}
                 onChange={handleSingleChange}
-                id="flexCheckDefault"
+                id="ss"
               />
-              <label className="form-check-label" htmlFor="flexCheckDefault">
+              <label className="form-check-label" htmlFor="ss">
                 Single Side
               </label>
             </div>
@@ -36,30 +47,28 @@ const SetupPrint = () => {
                 className="form-check-input"
                 type="checkbox"
                 value=""
-                id="flexCheckDefault"
+                id="bs"
               />
-              <label className="form-check-label" htmlFor="flexCheckDefault">
+              <label className="form-check-label" htmlFor="bs">
                 Both Side
               </label>
             </div>
-          </div> */}
-          <div className={
-            page === 'single' ? "pageBox active" : "pageBox"
+          </div>
+          {/* <div className={
+           `pageBox mx-4 col-lg-5 ${page === 'single' ? " active" : null}`
           }
             title="Single Side"
             onClick={() => setPage('single')}
           >
             <BsFillFileFill />
           </div>
-          <div className={
-            page === 'both' ? "pageBox active" : "pageBox"
-          }
-
+          <div 
+            className={`col-lg-5 mx-4 pageBox ${page === 'both' ? " active" : null}`}
             title="Both Side"
             onClick={() => setPage('both')}
           >
             <SiPowerpages />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

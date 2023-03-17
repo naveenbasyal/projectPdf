@@ -7,7 +7,7 @@ const TotalPrices = () => {
       <hr className="hr hr-blurry" />
 
       <div className="container my-5 ">
-        <h2 className="dim pop fw-bold center">Total Price</h2>
+        <h2 className=" ls-2 pop stroke fw-bold center">Total Price</h2>
         <h4 className="jsf fw-bold center my-3">Rs. 40</h4>
 
         <div className="my-4">
@@ -20,11 +20,12 @@ const TotalPrices = () => {
             placeholder="Leave a message..."
           />
         </div>
-        <div className="my-4 pop">
-          <Link to="/cart" className=" add_to_cart ">
+        {/* <div className=" pop"> */}
+          <Link to="" className="add_to_cart shadow-out dim pop">
             Add to Cart
           </Link>
-        </div>
+
+        {/* </div> */}
       </div>
       <br />
       <br />

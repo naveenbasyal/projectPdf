@@ -1,33 +1,60 @@
-import React, { useState } from "react";
-import BindingCharges from "./Charges/BindingCharges";
-import PaperCharges from "./Charges/PrintingCharges";
-import TotalPrices from "./Charges/TotalPrices";
+import React, { useState, useEffect } from "react";
+import BindingCharges from "../delivery/Charges/BindingCharges";
+import PaperCharges from "../delivery/Charges/PrintingCharges";
+import TotalPrices from "../delivery/Charges/TotalPrices";
 import { Link } from "react-router-dom";
-import Bind from "./components/Bind";
-import Colors from "./components/Colors";
-import DeliveryHeader from "./components/DeliveryHeader";
-import SetupPrint from "./components/SetupPrint";
-import "./delivery.css";
+import Bind from "../delivery/components/Bind";
+import Colors from "../delivery/components/Colors";
+import DeliveryHeader from "../delivery/components/DeliveryHeader";
+import SetupPrint from "../delivery/components/SetupPrint";
+import "../delivery/delivery.css";
+import { motion } from "framer-motion"; // Framer Motion for cursor animation
 
-const Delivery = () => {
+
+const Copies = () => {
+  const [copies, setCopies] = useState(1);
+
+  const handleMinusButton = () => {
+    if (copies > 1) {
+      setCopies(copies - 1);
+    }
+  };
+
+  const handlePlusButton = () => {
+    setCopies(copies + 1);
+  };
+  return (
+    <div className="copies d-flex">
+      <button onClick={handleMinusButton} className="center shadow-out ">
+        -
+      </button>
+      <input
+        type="text"
+        value={copies}
+        onChange={(e) => setCopies(e.target.value)}
+        className="center shadow-in px-2 mx-2 form-control"
+      />
+      <button onClick={handlePlusButton} className=" shadow-out">
+        +
+      </button>
+    </div>
+  );
+};
+
+const Delivery = ({ onMouseEnter, onMouseLeave }) => {
   const [selectedFiles, setSelectedFiles] = useState({});
   const [totalFiles, setTotalFiles] = useState(0);
   const [error, setError] = useState("");
-  const [copies, setCopies] = useState([]);
-  // const [selectedPdfIndex, setSelectedPdfIndex] = useState(null);
 
   const handleFileChange = (e) => {
     const files = e.target.files;
     const fileArray = Array.from(files);
-    setSelectedFiles({}); // reset purana file ka info
-    setTotalFiles(fileArray.length); // set total files
+    const newFiles = {};
 
     fileArray.forEach((file) => {
       if (!file.name.endsWith(".pdf")) {
         // check if file is not a PDF
-        setSelectedFiles({});
-        setTotalFiles(0);
-        setError("Please upload only PDF files"); //  error message
+        setError("Please upload only PDF files"); // error message
         return;
       }
       const reader = new FileReader();
@@ -50,9 +77,13 @@ const Delivery = () => {
             };
             page.render(renderContext).promise.then(() => {
               const imageDataUri = canvas.toDataURL();
+              newFiles[file.name] = { pages, imageDataUri }; // add file name, number of pages, and image data URI to newFiles object
               setSelectedFiles((prev) => {
-                return { ...prev, [file.name]: { pages, imageDataUri } }; // add file name, number of pages, and image data URI to state
+                return { ...prev, ...newFiles }; // merge newFiles with previously selected files
               });
+              setTotalFiles(
+                Object.keys(selectedFiles).length + Object.keys(newFiles).length
+              ); // set total files count
             });
           });
         });
@@ -68,20 +99,6 @@ const Delivery = () => {
     setTotalFiles(totalFiles - 1);
   };
 
-  const handlePlusButton = (index) => {
-    const newCopies = [...copies];
-    newCopies[index] = newCopies[index] ? newCopies[index] + 1 : 1;
-    setCopies(newCopies);
-  };
-
-  const handleMinusButton = (index) => {
-    const newCopies = [...copies];
-    if (newCopies[index] && newCopies[index] > 1) {
-      newCopies[index] = newCopies[index] - 1;
-      setCopies(newCopies);
-    }
-  };
-
   return (
     <>
       <section>
@@ -89,12 +106,23 @@ const Delivery = () => {
         <DeliveryHeader />
         {/* ------------Main Delivery section---------- */}
         <div className="row mx-5 pop main_delivery_section">
-          <h2 className="my-4 fw-bold dim px-5 ms-3">Order Document</h2>
+          <motion.h2
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            className="my-4 fw-bold jsf stroke ls-2 fw-light px-5 ms-3"
+          >
+            Order Document
+          </motion.h2>
           {/* -------Choose File----------- */}
+
           <div className="col-lg-8 col-sm-12 px-5 Options">
-            <div className="">
+            <div className="mx-4">
               <label htmlFor="formFileLg" className="u-f-b">
-                Upload Files
+                {totalFiles > 0 ? (
+                  <span>Upload More ? </span>
+                ) : (
+                  <span>Upload Files </span>
+                )}
                 <input
                   multiple
                   className="form-control form-control-lg choosefile shadow-in hidden"
@@ -130,7 +158,18 @@ const Delivery = () => {
                 <div>
                   {Object.entries(selectedFiles).map(([name, file], index) => (
                     <div>
-                      <div key={name} className="my-5 row">
+                      <motion.div
+                        initial={{ x: "-100vw" }}
+                        animate={{ x: 0 }}
+                        transition={{
+                          duration: 0.6,
+                          type: "spring",
+                          bounce: 0.5,
+                          // damping: 5,
+                        }}
+                        key={index}
+                        className="my-5 row shadow-out py-3"
+                      >
                         <div className="col-lg-3 center">
                           {/* ------Thumbnail---------- */}
                           <img
@@ -139,31 +178,9 @@ const Delivery = () => {
                             alt=""
                           />
                           {/* ---------Copies------ */}
-                          <div className="copies d-flex">
-                            <button
-                              onClick={handleMinusButton(index)}
-                              className="center shadow-out "
-                            >
-                              -
-                            </button>
-                            <input
-                              type="text"
-                              value={copies[index] || ""}
-                              onChange={(e) => {
-                                const newCopies = [...copies];
-                                newCopies[index] =
-                                  parseInt(e.target.value) || "";
-                                setCopies(newCopies);
-                              }}
-                              className="center shadow-in px-2 mx-2 form-control"
-                            />
-                            <button
-                              onClick={handlePlusButton(index)}
-                              className=" shadow-out"
-                            >
-                              +
-                            </button>
-                          </div>
+                          {[...Array(1)].map((e, i) => (
+                            <Copies key={i} />
+                          ))}
                         </div>
                         <div className="col-lg-7 py-3">
                           <h4 className="dim fs-5">
@@ -173,7 +190,8 @@ const Delivery = () => {
                           <SetupPrint />
                           <Colors />
                         </div>
-                        <div className="col-lg-2">
+                        {/* ------Delete Icon -------*/}
+                        <div className="col-lg-2 py-4">
                           <button className="btn text-danger deleteicon px-2 center shadow-out">
                             <i
                               className="fa fa-trash "
@@ -188,9 +206,9 @@ const Delivery = () => {
                             <i className="fa fa-eye" aria-hidden="true"></i>
                           </button> */}
                         </div>
-                      </div>
+                      </motion.div>
 
-                      <hr className="hr hr-blurry" />
+                      {/* <hr className="hr hr-blurry" /> */}
                     </div>
                   ))}
                 </div>
@@ -200,7 +218,9 @@ const Delivery = () => {
 
           {/*  ----------- Prices Chart------------ */}
           <div className="col-lg-4 col-sm-12 jsf my-5 price_chart">
-            <h2 className="text-center dim fw-bold pop">Prices Chart</h2>
+            <h2 className="text-center  ls-2 fw-bold stroke pop">
+              Prices Chart
+            </h2>
             <BindingCharges />
             <PaperCharges />
           </div>
