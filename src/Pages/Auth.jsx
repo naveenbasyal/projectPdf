@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Auth.css";
+import { motion } from "framer-motion";
+import "../styles/Auth.css";
 const LoginSignUp = () => {
   const [signUp, setSignUp] = useState(false);
   const [signIn, setSignIn] = useState(false);
@@ -21,6 +22,7 @@ const LoginSignUp = () => {
         className={`container ${signUp ? "right-panel-active" : ""}  `}
         id="container"
       >
+        {/* ---------SignUP----------- */}
         <div className="form-container sign-up-container">
           <form>
             <h1 className="fs-4 stroke jsf p-1 ls-1">Create Account</h1>
@@ -54,6 +56,7 @@ const LoginSignUp = () => {
             <button className="shadow-out dim my-2">Sign Up</button>
           </form>
         </div>
+        {/* ---------------SignIn---------- */}
         <div className="form-container sign-in-container">
           <form>
             <h1 className="stroke ls-1 jsf p-1">Sign in</h1>

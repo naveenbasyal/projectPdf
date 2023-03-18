@@ -22,14 +22,22 @@ input {
 }
 .choosefile:active,
 .choosefile:focus {
-  box-shadow: var(--shadow-in);
-  background: var(--greyLight-1);
+  background: var(--primary-light);
   outline: none;
-}
-.headerImage {
-  border-radius: 0.8rem !important;
+  transform: scale(0.9);
 }
 
+.arrowUp {
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  right: 5rem;
+  position: fixed;
+  bottom: 5rem;
+  backdrop-filter: blur(8px);
+}
+.arrowUp:active {
+  box-shadow: var(--shadow-in);
+}
 .pdfImg {
   width: 8rem;
 }
@@ -38,14 +46,13 @@ input {
   text-decoration: none;
   border-radius: 6px;
   padding: 0.6rem;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 .add_to_cart:hover {
   color: var(--primary);
-  transform: scale(.9);
-
+  transform: scale(0.9);
 }
-.optionIcon{
+.optionIcon {
   /* justify-content: space-evenly; */
 }
 .form-check-input:focus,
@@ -53,7 +60,7 @@ input {
   outline: none !important;
   box-shadow: none !important;
 }
-label{
+label {
   cursor: pointer;
 }
 .instructions {
@@ -73,17 +80,17 @@ label{
   height: 2rem;
   border: none;
 }
-.eye{
+.eye {
   background: var(--greyLight-1);
   width: 2rem;
   border-radius: 6px;
   height: 2rem;
   border: none;
 }
-.eye:active{
+.eye:active {
   box-shadow: var(--shadow-in);
 }
-.copies button:active{
+.copies button:active {
   box-shadow: var(--shadow-in);
 }
 .form-control:checked {
@@ -100,7 +107,7 @@ label{
 .form-check-input:checked {
   background-color: var(--primary);
 }
-.u-f-b{
+.u-f-b {
   padding: 10px 20px;
   background: var(--primary);
   color: var(--greyLight-1);
@@ -108,63 +115,66 @@ label{
   border-radius: 5px;
 }
 
-.u-f-b input{
+.u-f-b input {
   display: none;
 }
-.colorBox{
+.colorBox {
   width: 25px;
   height: 25px;
   border-radius: 10%;
   margin: 0 5px;
   cursor: pointer;
-  background: 
-  linear-gradient(to left bottom, #ff0000 0%, #ff0000 25%, #ffff00 25%, #ffff00 50%, #00ff00 50%, #00ff00 75%, #0000ff 75%, #0000ff 100%);
-  ;
-}
-.bwBox{
-  width: 25px;
-  height: 25px;
-  border-radius: 10%;
-  margin: 0 5px;
-  cursor: pointer;
-  background: 
-  linear-gradient(to left bottom,
-  black 50%,
-  white 50%
+  background: linear-gradient(
+    to left bottom,
+    #ff0000 0%,
+    #ff0000 25%,
+    #ffff00 25%,
+    #ffff00 50%,
+    #00ff00 50%,
+    #00ff00 75%,
+    #0000ff 75%,
+    #0000ff 100%
   );
-  ;
+}
+.bwBox {
+  width: 25px;
+  height: 25px;
+  border-radius: 10%;
+  margin: 0 5px;
+  cursor: pointer;
+  background: linear-gradient(to left bottom, black 50%, white 50%);
 }
 .colorBox:hover,
-.bwBox:hover{
+.bwBox:hover {
   opacity: 0.8;
 }
 
-.colorBox.active , .bwBox.active{
+.colorBox.active,
+.bwBox.active {
   /* border: 2px solid var(--primary); */
-    outline: 2px solid var(--primary);
-      outline-offset: 1px;
-     scale: 1.1;
-
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  scale: 1.1;
 }
-.pageBox{
+.pageBox {
   width: 40px;
   height: 40px;
   border-radius: 10%;
   cursor: pointer;
   font-size: 2rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(128, 128, 128, 0.444);
   margin-right: 5px;
 }
-.pageBox:hover{
+.pageBox:hover {
   opacity: 0.8;
 }
-.pageBox.active{
- color: var(--primary);
- background: white;
- outline: 2px solid var(--primary);
+.pageBox.active {
+  color: var(--primary);
+  background: white;
+  outline: 2px solid var(--primary);
 }
 @media screen and (max-width: 450px) {
   .delivery_header {

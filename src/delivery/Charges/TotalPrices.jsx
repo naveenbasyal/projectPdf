@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const TotalPrices = () => {
+const TotalPrices = ({ totalPrice }) => {
   return (
     <div className="totalPrice my-5">
       <hr className="hr hr-blurry" />
 
       <div className="container my-5 ">
         <h2 className=" ls-2 pop stroke fw-bold center">Total Price</h2>
-        <h4 className="jsf fw-bold center my-3">Rs. 40</h4>
+        <div className="fs-3 fw-bold my-3 d-flex justify-content-center">
+          <i className="fas stroke p-2 fa-inr"></i>
+          <span className="dim"> {totalPrice}</span>
+        </div>
 
         <div className="my-4">
           <span className="fw-bold my-3 dim pop float-start">
@@ -21,9 +24,9 @@ const TotalPrices = () => {
           />
         </div>
         {/* <div className=" pop"> */}
-          <Link to="" className="add_to_cart shadow-out dim pop">
-            Add to Cart
-          </Link>
+        <Link to="" className="add_to_cart shadow-out dim pop">
+          Add to Cart
+        </Link>
 
         {/* </div> */}
       </div>
@@ -34,4 +37,3 @@ const TotalPrices = () => {
 };
 
 export default TotalPrices;
-

@@ -1,12 +1,12 @@
 
 import React,{useState} from "react";
-import { SiPowerpages } from 'react-icons/si'
-import { FaFilePdf } from 'react-icons/fa'
-import { AiOutlineFileAdd } from 'react-icons/ai'
-import { BsFillFileFill } from 'react-icons/bs'
+// import { SiPowerpages } from 'react-icons/si'
+// import { FaFilePdf } from 'react-icons/fa'
+// import { AiOutlineFileAdd } from 'react-icons/ai'
+// import { BsFillFileFill } from 'react-icons/bs'
 const SetupPrint = () => {
   // const [page, setPage] = React.useState('single')
-  const [singleSide, setSingleSide] = useState(false);
+  const [singleSide, setSingleSide] = useState(true);
   const [bothside, setBothSide] = useState(false);
 
   const handleSingleChange = () => {
@@ -30,6 +30,7 @@ const SetupPrint = () => {
                 className="form-check-input"
                 type="checkbox"
                 value=""
+                
                 checked={singleSide}
                 onChange={handleSingleChange}
                 id="ss"

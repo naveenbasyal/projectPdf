@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PDFDocument } from "pdf-lib";
 
-export default function Home() {
+export default function ExtractPages() {
   const [pdfFileData, setPdfFileData] = useState();
   const [pdfPagesCount, setPdfPagesCount] = useState();
 
