@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins:wght@500&display=swap");
+* {
+  user-select: none;
+}
 :root {
   --primary-lighter: #bdc2ff;
   --primary-light: #8a94ff;
@@ -22,21 +25,21 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: var(--shadow-in); 
+  box-shadow: var(--shadow-in);
   padding: 2rem;
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: yellow; 
+  background: yellow;
   width: 2rem;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary); 
+  background: var(--primary);
 }
 body {
   background: var(--greyLight-1);
@@ -67,10 +70,10 @@ body {
 .bg-color {
   background-color: var(--greyLight-1);
 }
-.card_tools {
+.card_tools a {
   text-decoration: none;
 }
-.bg-grey{
+.bg-grey {
   color: var(--greyDark);
 }
 .pointer {
@@ -130,19 +133,27 @@ body {
 .stroke-grey {
   font-weight: 700;
   text-transform: uppercase;
-  background: -webkit-linear-gradient(
-    -86deg,
-    #000 5%,
-    #000000 53%,
-    #000 91%
-  );
+  background: -webkit-linear-gradient(-86deg, #000 5%, #000000 53%, #000 91%);
   -webkit-background-clip: text;
   -webkit-text-stroke: 4px transparent;
   color: var(--greyDark);
 }
+.shadow-btn {
+  background: var(--greyLight-1);
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  padding: 0.4rem 0.7rem;
+}
+.shadow-btn:active {
+  transform: scale(0.95);
+  box-shadow: var(--shadow-in);
+  outline: none;
+  border: none;
+}
 
-.roundedBorder{
-  border-radius: 45%!important;
+.roundedBorder {
+  border-radius: 45% !important;
 }
 ::-webkit-scrollbar-track {
   background-color: #ebebeb;
@@ -173,4 +184,12 @@ body {
 .center {
   display: grid;
   place-items: center;
+}
+@media screen and (max-width: 450px) {
+  .card_tools {
+    margin-left: 1rem !important;
+  }
+  .ring,.dot{
+    display: none;
+  }
 }

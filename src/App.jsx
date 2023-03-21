@@ -30,10 +30,12 @@ const App = () => {
     <>
       <BrowserRouter>
         <Navbar scrollToTop={scrollToTop} />
+        {/* ____scrollbar____ */}
         <motion.div
           className="progress-bar"
           style={{ scaleX: scrollYProgress }}
         />
+        {/* __Cursor__ */}
         <DotRing />
         <div>
           <Routes>

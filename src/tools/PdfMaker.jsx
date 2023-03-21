@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import pdfMake from "pdfmake/build/pdfmake";
@@ -83,20 +84,27 @@ const PdfGenerator = () => {
   ];
 
   return (
-    <div className="container my-5">
-      <h2 className="text-center">Create/Write your own Pdf</h2>
+    <div className="container pop my-5">
+      <h2 className="text-center stroke p-1 ls-2">
+        Create / Write your own Pdf
+      </h2>
       <ReactQuill
         value={text}
         onChange={handleTextChange}
         modules={modules}
         formats={formats}
-        style={{ height: '20rem' }}
+        style={{ height: "20rem" }}
       />
       <br />
       <br />
-      <button className="btn btn-primary my-5" onClick={handleGenerate} disabled={!text}>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        className="shadow-out shadow-btn dim fw-bold  my-5"
+        onClick={handleGenerate}
+        disabled={!text}
+      >
         Preview
-      </button>
+      </motion.button>
       <br />
       <br />
       <iframe

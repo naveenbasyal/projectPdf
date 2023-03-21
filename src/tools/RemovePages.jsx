@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { PDFDocument } from "pdf-lib";
 
 export default function Home() {
   const [pdfFileData, setPdfFileData] = useState();
-  const [pdfPagesCount, setPdfPagesCount] = useState();
+  const [pdfPagesCount, setPdfPagesCount] = useState(0);
 
   function readFileAsync(file) {
     return new Promise((resolve, reject) => {
@@ -70,30 +71,77 @@ export default function Home() {
   };
 
   return (
-    <div className="container my-5">
-      <h1>Remove Pages</h1>
-      <input
-        type="file"
-        className="form-control"
-        id="file-selector"
-        accept=".pdf"
-        onChange={onFileSelected}
-      />
-      {pdfFileData && (
-        <div>
-          <label htmlFor="fromPage">Enter start page:</label>
-          <input type="number" id="fromPage" min="1" max={pdfPagesCount} />
-          <label htmlFor="toPage">Enter end page:</label>
-          <input type="number" id="toPage" min="1" max={pdfPagesCount} /><br/>
-          <button onClick={removePdfPages} className="btn btn-primary">Remove Pages</button>
-          <iframe
-            style={{ display: "block", width: "70vw", height: "80vh" }}
-            title="PdfFrame"
-            src={pdfFileData}
-            type="application/pdf"
-          ></iframe>
+    <div className="container center my-5 pop">
+      <div className="col-lg-8 col-md-10 col-sm-12">
+        <h1 className="stroke ls-2 mx-4 center">Remove Pages from PDF</h1>
+        <div className="d-flex my-5 justify-content-around center">
+          <span className="dim fw-bold fs-5">
+            Total Pages : {pdfPagesCount}
+          </span>
+          <label htmlFor="remove-pages" className="u-f-b">
+            {pdfPagesCount == 0 ? "Upload Files" : "Upload More?"}
+            <input
+              type="file"
+              className="form-control"
+              id="remove-pages"
+              accept=".pdf"
+              onChange={onFileSelected}
+            />
+          </label>
         </div>
+      </div>
+      {pdfFileData && (
+        <>
+          <div className="col-lg-8  col-md-10 col-sm-12">
+            <div className="my-5 d-flex  justify-content-around">
+              <div className="d-flex center">
+                <label htmlFor="fromPage" className="dim fs-5 mx-3">
+                  Start page:
+                </label>
+                <input
+                  style={{ width: "5rem" }}
+                  className="center bg-color shadow-in px-2 mx-2 form-control"
+                  type="number"
+                  id="fromPage"
+                  min="1"
+                  max={pdfPagesCount}
+                />
+              </div>
+              <div className="d-flex center">
+                <label htmlFor="toPage" className="dim fs-5 mx-3">
+                  End page:
+                </label>
+                <input
+                  style={{ width: "5rem" }}
+                  className="center bg-color shadow-in px-2 mx-2 form-control"
+                  type="number"
+                  id="toPage"
+                  min="1"
+                  max={pdfPagesCount}
+                />
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="shadow-out shadow-btn dim my-5 p-2"
+                onClick={removePdfPages}
+              >
+                Remove Pages
+              </motion.button>
+            </div>
+          </div>
+        </>
       )}
+     
+      <iframe
+        height={700}
+        src={pdfFileData}
+        title="pdf-viewer"
+        style={{ width: "60vw" }}
+        id="pdf-preview"
+      ></iframe>
+     
     </div>
   );
 }

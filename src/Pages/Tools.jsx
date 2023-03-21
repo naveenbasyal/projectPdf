@@ -68,16 +68,17 @@ const Tools = ({ scrollToTop }) => {
         <div className="col-12">
           <div className="row">
             {tools.map((tool) => (
-              <div className="col-lg-4 my-1 col-md-6 col-sm-12" key={tool.id}>
-                <Link to={tool.link} className="card_tools">
+              // __________Tools_Card____________
+              <div className="col-lg-4 my-1 col-md-6 card_tools col-sm-12" key={tool.id}>
+                <Link to={tool.link} className="">
                   <motion.div
                     onClick={scrollToTop}
-                    initial={{ y: "100vw", opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
+                    initial={{ x: "100vw", opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.2 ,bounce:.2,type:"tween"}}
                     style={{ height: "10rem" }}
-                    whileHover={{ scale: 1.05 }}
-                    className="card m-2 bg-color border-none pointer shadow-out"
+                    whileHover={{ scale: 1.1 }}
+                    className="card  m-2 bg-color border-none pointer shadow-out"
                   >
                     <div className="card-body py-4">
                       <div className="card-title fs-5 dim">

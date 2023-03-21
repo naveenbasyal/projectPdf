@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import jsPDF from "jspdf";
+import { motion } from "framer-motion";
 
 async function generatePdf(images) {
   const doc = new jsPDF();
@@ -57,23 +58,51 @@ function App() {
 
   async function handleSavePdf() {
     //save ke liye
-    const pdf = await generatePdf(images);   
-    pdf.save("Img2Pdf.pdf"); 
+    const pdf = await generatePdf(images);
+    pdf.save("Img2Pdf.pdf");
   }
 
   return (
-    <div className="container ">
-      <h2>Add multiple images to PDF</h2>
-      <input
-        className="form-control my-2"
-        type="file"
-        accept="image/*"
-        multiple
-        onChange={handleFileInputChange}
-      />
-      <button className="btn btn-success my-2" onClick={handleSavePdf}>
-        Save PDF
-      </button>
+    <div className="container center my-5 row pop">
+      <div className="col-lg-6 col-md-9 col-sm-12 ">
+        <h2 className="stroke u-f-b fs-2 p-1 ls-1 my-2 center">
+          Add multiple images to PDF
+        </h2>
+
+        <div className="d-flex justify-content-evenly center my-4">
+          <span className="dim fs-5 fw-bold mx-4">
+            Total Images : {images.length}
+          </span>
+          <motion.label
+            whileHover={{ scale: 1.1 }}
+            htmlFor="formFileLg"
+            className="u-f-b choosefile m-2"
+          >
+            {images.length == 0 ? "Upload Files" : "Upload More?"}
+            <input
+              multiple
+              className="form-control form-control-lg choosefile shadow-in hidden"
+              id="formFileLg"
+              accept="image/*"
+              type="file"
+              onChange={handleFileInputChange}
+            />
+          </motion.label>
+        </div>
+      </div>
+      <div className="row  center">
+        <div className="col-lg-6 col-md-10 col-sm-12">
+          {images.length > 0 ? (
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="shadow-out m-5 shadow-btn dim"
+              onClick={handleSavePdf}
+            >
+              Save PDF
+            </motion.button>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
 }

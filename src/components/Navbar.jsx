@@ -4,6 +4,7 @@ import "../styles/Navbar.css";
 
 const Navbar = ({ scrollToTop }) => {
   const [activeLink, setActiveLink] = useState("");
+  const [sidebarActive, setsidebarActive] = useState(false);
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
@@ -41,7 +42,7 @@ const Navbar = ({ scrollToTop }) => {
             title="Tools"
             onClick={() => handleLinkClick("tools")}
           >
-            <i class="fa-solid fa-screwdriver-wrench p-2"></i>
+            <i className="fa-solid fa-screwdriver-wrench p-2"></i>
           </Link>
           <Link
             to="/cart"
@@ -53,7 +54,7 @@ const Navbar = ({ scrollToTop }) => {
             title="Cart"
             onClick={() => handleLinkClick("cart")}
           >
-            <i class="fa-solid  p-2 fa-cart-shopping"></i>
+            <i className="fa-solid  p-2 fa-cart-shopping"></i>
           </Link>
           <Link
             to="/auth"
@@ -65,10 +66,24 @@ const Navbar = ({ scrollToTop }) => {
             title="auth"
             onClick={() => handleLinkClick("auth")}
           >
-            <i class="fas fa-sign-in-alt  p-2"></i>
+            <i className="fas fa-sign-in-alt  p-2"></i>
           </Link>
         </div>
+        {/* ------------------Sidebar------------------ */}
+        {/* <button
+          onClick={() => !sidebarActive}
+          className="shadow-btn shadow-out p-2 bar"
+        >
+          hh
+        </button> */}
       </div>
+      {/* <div className={`sidebar ${sidebarActive ? "sidebarActive" : ""}`}>
+        <div className="sidebar_items d-flex flex-column center my-4">
+          <a href="">Home</a>
+          <a href="">service</a>
+          <a href="">About</a>
+        </div>
+      </div> */}
     </>
   );
 };

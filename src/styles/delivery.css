@@ -176,10 +176,22 @@ label {
   background: white;
   outline: 2px solid var(--primary);
 }
+*{
+  cursor: none;
+}
 @media screen and (max-width: 450px) {
   .delivery_header {
     margin: 2rem 1rem;
     padding: 1rem 1rem;
+  }
+  *{
+    /* cursor: not-allowed; */
+  }
+  .delivery_header .rubber{
+    padding: .25rem;
+  }
+  .tools_header .rubber{
+    padding: .04rem;
   }
   .main_delivery_section {
     margin: 1rem 1rem !important;
@@ -192,5 +204,9 @@ label {
   }
   .totalPrice .container {
     width: 80%;
+  }
+  .arrowUp{
+    right: 1.8rem;
+    bottom: 2.5rem;
   }
 }

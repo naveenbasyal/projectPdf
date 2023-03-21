@@ -12,10 +12,10 @@ const BindingCharges = () => {
           bounce: 0.6,
           // damping: 5,
         }}
-        className="table my-5"
+        className="table my-5 "
       >
         <thead>
-          <tr>
+          <tr >
             <th scope="col" className="fw-bold dim">
               Binding
             </th>

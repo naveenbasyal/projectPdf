@@ -114,13 +114,13 @@ const Delivery = ({ scrollToTop }) => {
         <DeliveryHeader />
         {/* ------------Main Delivery section---------- */}
         <div className="row mx-5 pop main_delivery_section">
-          <motion.h2
+          <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="my-4 fw-bold jsf stroke ls-2 fw-light px-5 ms-3"
+            className="my-4 fw-bold jsf stroke ls-2 fw-light fs-3 center"
           >
             Order Document
-          </motion.h2>
+          </motion.div>
           {/* -------Choose File----------- */}
 
           <div className="col-lg-8 col-sm-12 px-5 Options">
@@ -152,7 +152,7 @@ const Delivery = ({ scrollToTop }) => {
               )}
 
               {/* Total Files Selected */}
-              <div className="container my-4">
+              <div className="my-4">
                 <span className="dim fs-5 ">
                   Total Files Selected: {totalFiles}
                 </span>
@@ -182,7 +182,8 @@ const Delivery = ({ scrollToTop }) => {
                       >
                         <div className="col-lg-3 center">
                           {/* ------Thumbnail---------- */}
-                          <img
+                          <motion.img
+                            whileHover={{ scale: 1.2 }}
                             src={file.imageDataUri}
                             className="img-fluid pdfImg shadow-out p-1"
                             alt=""
@@ -202,7 +203,7 @@ const Delivery = ({ scrollToTop }) => {
                         </div>
                         {/* ------Delete Icon -------*/}
                         <div className="col-lg-2 py-4">
-                          <button className="btn text-danger deleteicon px-2 center shadow-out">
+                          <button className="shadow-out shadow-btn text-danger px-2 center ">
                             <i
                               className="fa fa-trash "
                               aria-hidden="true"
@@ -261,7 +262,7 @@ const Delivery = ({ scrollToTop }) => {
       </section>
 
       {/* --------Total Prices------------ */}
-      <TotalPrices totalPrice={totalPrice}/>
+      <TotalPrices totalPrice={totalPrice} />
     </>
   );
 };

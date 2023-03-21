@@ -20,11 +20,11 @@ const LoginSignUp = () => {
     <div className="auth my-5 pop">
       <div
         className={`container ${signUp ? "right-panel-active" : ""}  `}
-        id="container"
+        id="container "
       >
         {/* ---------SignUP----------- */}
-        <div className="form-container sign-up-container">
-          <form>
+        <div className="form-container sign-up-container  ">
+          <form className=" ">
             <h1 className="fs-4 stroke jsf p-1 ls-1">Create Account</h1>
             <div className="social-container">
               <a href="#" className="social ">
@@ -57,7 +57,7 @@ const LoginSignUp = () => {
           </form>
         </div>
         {/* ---------------SignIn---------- */}
-        <div className="form-container sign-in-container">
+        <div className="form-container sign-in-container col-sm-12">
           <form>
             <h1 className="stroke ls-1 jsf p-1">Sign in</h1>
             <div className="social-container">
@@ -83,10 +83,13 @@ const LoginSignUp = () => {
               placeholder="Password"
             />
             <Link href="#">Forgot your password?</Link>
+            <button onClick={handleSignUp} className="signUp-1" id="signUp-1">
+              Sign Up
+            </button>
             <button className="shadow-out dim">Sign In</button>
           </form>
         </div>
-        <div className="overlay-container">
+        <div className="overlay-container col-sm-12">
           <div className="overlay">
             <div className="overlay-panel overlay-left">
               <h1>Welcome Back!</h1>

@@ -30,7 +30,7 @@ const ToolsHeader = () => {
           }}
           className="container  display-4 py-5 dim jsf text-capitalize fw-bold col-lg-6 col-sm-12"
         >
-          <span className="stroke p-1 mx-3 ls-1">
+          <div className="mx-3 ls-1">
             <motion.span
               initial={{ y: "-100vw" }}
               transition={{
@@ -187,9 +187,9 @@ const ToolsHeader = () => {
             >
               :
             </motion.span>
-          </span>
+          </div>
           <br />
-          <span className="fs-1 px-3 primary  fw-bold center">
+          <span className="fs-1 px-3 primary   fw-bold center">
             All the Tools You Need for Managing PDFs
           </span>
         </motion.div>
