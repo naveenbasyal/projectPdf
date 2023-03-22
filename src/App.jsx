@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import DotRing from "./CustomMouse/DotRing/DotRing";
 import { motion, useScroll } from "framer-motion";
 import Delivery from "./Pages/Delivery";
@@ -17,6 +17,7 @@ import Navbar from "./components/Navbar";
 import Cart from "./Pages/cart";
 import Tools from "./Pages/Tools";
 import Auth from "./Pages/Auth";
+import {Toaster} from 'react-hot-toast'
 
 const scrollToTop = () => {
   window.scrollTo({
@@ -25,10 +26,16 @@ const scrollToTop = () => {
   });
 };
 const App = () => {
+
   const { scrollYProgress } = useScroll();
+  useEffect(()=>{
+
+  },[localStorage
+  ])
   return (
     <>
       <BrowserRouter>
+      <Toaster />
         <Navbar scrollToTop={scrollToTop} />
         {/* ____scrollbar____ */}
         <motion.div

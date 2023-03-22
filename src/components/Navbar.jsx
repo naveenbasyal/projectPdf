@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
+import getToken from "../utils/getToken";
 
 const Navbar = ({ scrollToTop }) => {
   const [activeLink, setActiveLink] = useState("");
   const [sidebarActive, setsidebarActive] = useState(false);
+  const token = getToken()
+  console.log(token)
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
@@ -56,18 +59,41 @@ const Navbar = ({ scrollToTop }) => {
           >
             <i className="fa-solid  p-2 fa-cart-shopping"></i>
           </Link>
-          <Link
-            to="/auth"
-            className={`links ${
-              activeLink === "auth"
-                ? "stroke shadow-in p-2 roundedBorder"
-                : "stroke-grey"
-            }`}
-            title="auth"
-            onClick={() => handleLinkClick("auth")}
-          >
-            <i className="fas fa-sign-in-alt  p-2"></i>
-          </Link>
+          {
+            token ? (
+              <Link
+                to="/"
+                className={`links ${
+                  activeLink === "logout"
+                    ? "stroke shadow-in p-2 roundedBorder"
+                    : "stroke-grey"
+
+                }`}
+
+                title="Logout"
+                onClick={() => {
+                  handleLinkClick("logout")
+                  localStorage.removeItem("filedesk")
+                }}
+                
+                >
+
+                logout
+
+                </Link>
+            ) : (
+                <Link
+                  to="/auth"
+                  className={`links ${activeLink === "auth"
+                      ? "stroke shadow-in p-2 roundedBorder"
+                      : "stroke-grey"
+                    }`}
+                  title="auth"
+                  onClick={() => handleLinkClick("auth")}
+                >
+                  <i className="fas fa-sign-in-alt  p-2"></i>
+                </Link>)
+          }
         </div>
         {/* ------------------Sidebar------------------ */}
         {/* <button

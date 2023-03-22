@@ -17,6 +17,10 @@
   --shadow-in: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
     inset -0.2rem -0.2rem 0.5rem var(--white);
 }
+a{
+  text-decoration: none;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

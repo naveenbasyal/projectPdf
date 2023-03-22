@@ -118,6 +118,11 @@ label {
 .u-f-b input {
   display: none;
 }
+
+
+a.u-f-b:hover{
+  color: white;
+}
 .colorBox {
   width: 25px;
   height: 25px;
