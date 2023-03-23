@@ -18,6 +18,8 @@ import Cart from "./Pages/cart";
 import Tools from "./Pages/Tools";
 import Auth from "./Pages/Auth";
 import {Toaster} from 'react-hot-toast'
+import DocToPdf from "./tools/DocToPdf";
+import ConvertToZip from "./tools/ConvertToZip";
 
 const scrollToTop = () => {
   window.scrollTo({
@@ -58,6 +60,9 @@ const App = () => {
             <Route path="/tools/extract-pages" element={<ExtractPages />} />
             <Route path="/tools/remove-pages" element={<RemovePages />} />
             <Route path="/tools/create-pdf" element={<PdfMaker />} />
+            <Route path="/tools/doc-to-pdf" element={<DocToPdf />} />
+            <Route path="/tools/convert-zip" element={<ConvertToZip />} />
+            
             <Route path="/auth" element={<Auth />} />
           </Routes>
         </div>

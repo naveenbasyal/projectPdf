@@ -55,6 +55,13 @@ const Tools = ({ scrollToTop }) => {
       icon: "fa-file-pdf",
       link: "/tools/create-pdf",
     },
+    {
+      id: 8,
+      name: "Convert to Zip ",
+      description: "Convert PDF to Zip file",
+      icon: "fa-file-pdf",
+      link: "/tools/convert-zip",
+    },
   ];
 
   return (
