@@ -238,9 +238,15 @@
   box-shadow: var(--shadow-out);
 }
 .forgotPassword input:focus {
- 
   color: var(--primary);
-  
+}
+.forgotpass{
+  transition: .4s ease;
+
+}
+.forgotpass:hover {
+  color: red;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 450px) {

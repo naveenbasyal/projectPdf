@@ -98,6 +98,9 @@ body {
 .rubber:hover {
   animation: rubberband 800ms alternate ease-out;
 }
+.forgotpass:hover .ring{
+  display: none;
+}
 @keyframes rubberband {
   0% {
     transform: scaleX(1);
@@ -183,6 +186,7 @@ body {
   display: grid;
   place-items: center;
 }
+
 
 @media screen and (max-width: 450px) {
   .card_tools {

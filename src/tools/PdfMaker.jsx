@@ -4,7 +4,8 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import htmlToPdfmake from "html-to-pdfmake";
+import htmlToPdfmake from "html-to-pdfmake"; 
+
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ExtractPages from "../tools/ExtractPages";
 import { Link } from "react-router-dom";
 import ToolsHeader from "../components/ToolsHeader";
 

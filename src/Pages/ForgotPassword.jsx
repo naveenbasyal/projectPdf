@@ -71,9 +71,13 @@ const ForgotPassword = () => {
                   value={email}
                   onChange={(e)=>setEmail(e.target.value)}
                 />
-               
               </div>
-              <button type="submit" className="shadow-btn shadow-out dim pop">Send</button>
+              <button type="submit" className="shadow-btn  shadow-out dim pop">
+                Send
+              </button>
+              <Link to="/auth" className=" dim pop mx-4 forgotpass shadow-out shadow-btn">
+                Login
+              </Link>
             </form>
           </div>
         </div>
