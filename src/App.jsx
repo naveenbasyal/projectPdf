@@ -14,7 +14,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Cart from "./Pages/cart";
+import Dashboard from "./Pages/Dashboard";
 import Tools from "./Pages/Tools";
 import Auth from "./Pages/Auth";
 import {Toaster} from 'react-hot-toast'
@@ -44,7 +44,7 @@ const App = () => {
           style={{ scaleX: scrollYProgress }}
         />
         {/* __Cursor__ */}
-        <DotRing />
+        {/* <DotRing /> */}
         <div>
           <Routes>
             <Route path="/" element={<Delivery scrollToTop={scrollToTop} />} />
@@ -52,7 +52,7 @@ const App = () => {
               path="/tools"
               element={<Tools scrollToTop={scrollToTop} />}
             />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/tools/merge" element={<Merge />} />
             <Route path="/tools/image-to-pdf" element={<Img2Pdf />} />

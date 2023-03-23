@@ -103,13 +103,13 @@ const LoginSignUp = () => {
           <form className="" onSubmit={handleRegister}>
             <h1 className="fs-4 stroke jsf p-1 ls-1">Create Account</h1>
             <div className="social-container">
-              <a href="#" className="social ">
+              <a href="#" className="social shadow-out shadow-btn ">
                 <i className="fab fa-facebook-f "></i>
               </a>
-              <a href="#" className="social">
+              <a href="#" className="social shadow-out shadow-btn">
                 <i className="fab fa-google-plus-g "></i>
               </a>
-              <a href="#" className="social">
+              <a href="#" className="social shadow-out shadow-btn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
@@ -142,6 +142,7 @@ const LoginSignUp = () => {
               required
             />
             <button className="shadow-out dim my-2">Sign Up</button>
+            <button onClick={handleSignIn}>Login</button>
           </form>
         </div>
         {/* ---------------SignIn---------- */}
@@ -149,13 +150,13 @@ const LoginSignUp = () => {
           <form onSubmit={handleLogin}>
             <h1 className="stroke ls-1 jsf p-1">Sign in</h1>
             <div className="social-container">
-              <a href="#" className="social">
+              <a href="#" className="social shadow-out shadow-btn pointer">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" className="social">
+              <a href="#" className="social shadow-out shadow-btn pointer">
                 <i className="fab fa-google-plus-g"></i>
               </a>
-              <a href="#" className="social">
+              <a href="#" className="social shadow-out shadow-btn pointer">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
@@ -178,7 +179,7 @@ const LoginSignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <Link className="forgotpass" to="/forgotpassword">Forgot your password?</Link>
+            <Link className="forgotpass p-1" to="/forgotpassword">Forgot your password?</Link>
             <button onClick={handleSignUp} className="signUp-1" id="signUp-1">
               Sign Up
             </button>

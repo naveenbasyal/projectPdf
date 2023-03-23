@@ -73,6 +73,7 @@ const Delivery = ({ scrollToTop }) => {
     console.log("shop");
     getShop();
   }, []);
+
   console.log(shop);
   const handleFileChange = (e) => {
     const files = e.target.files;
@@ -304,15 +305,15 @@ const Delivery = ({ scrollToTop }) => {
               />
               <PaperCharges bw={shop?.bwPrice} color={shop?.colorPrice} />
             </div>
+            <TotalPrices />
           </div>
         ) : (
           <>
             <div className="container center py-5">
-              <span className="fs-3 py-5 text-danger">
+              <p className="fs-3 py-5 px-4 text-danger center">
                 Sorry! We are not accepting orders right now.
-              </span>
+              </p>
             </div>
-            <TotalPrices />
           </>
         )}
       </section>

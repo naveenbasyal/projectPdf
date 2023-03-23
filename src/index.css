@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins:wght@500&display=swap");
 * {
-  user-select: none;
+  /* user-select: none; */
 }
 :root {
   --primary-lighter: #bdc2ff;
@@ -36,7 +36,7 @@ a{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: yellow;
+  background: var(--primary);
   width: 2rem;
   border-radius: 10px;
 }

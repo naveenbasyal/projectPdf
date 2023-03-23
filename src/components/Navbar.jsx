@@ -5,14 +5,14 @@ import getToken from "../utils/getToken";
 
 const Navbar = ({ scrollToTop }) => {
   const [activeLink, setActiveLink] = useState("home");
-  const token = getToken()
-  console.log(token)
+  const token = getToken();
+  console.log(token);
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
     scrollToTop();
   };
-  
+
   return (
     <>
       <div className="navbar d-flex shadow-out">
@@ -59,52 +59,47 @@ const Navbar = ({ scrollToTop }) => {
             <i className="fa-solid fa-screwdriver-wrench p-2"></i>
           </Link>
           <Link
-            to="/cart"
+            to="/dashboard"
             className={`links ${
-              activeLink === "cart"
+              activeLink === "dashboard"
                 ? "stroke shadow-in p-2 roundedBorder"
                 : "stroke-grey"
             }`}
-            title="Cart"
-            onClick={() => handleLinkClick("cart")}
+            title="Dashboard"
+            onClick={() => handleLinkClick("dashboard")}
           >
-            <i className="fa-solid  p-2 fa-cart-shopping"></i>
+            <i class="fa-solid p-2 fa-gauge"></i>
           </Link>
-          {
-            token ? (
-              <Link
-                to="/"
-                className={`links ${
-                  activeLink === "logout"
-                    ? "stroke shadow-in p-2 roundedBorder"
-                    : "stroke-grey"
-
-                }`}
-
-                title="Logout"
-                onClick={() => {
-                  handleLinkClick("logout")
-                  localStorage.removeItem("filedesk")
-                }}
-                
-                >
-
-                logout
-
-                </Link>
-            ) : (
-                <Link
-                  to="/auth"
-                  className={`links ${activeLink === "auth"
-                      ? "stroke shadow-in p-2 roundedBorder"
-                      : "stroke-grey"
-                    }`}
-                  title="auth"
-                  onClick={() => handleLinkClick("auth")}
-                >
-                  <i className="fas fa-sign-in-alt  p-2"></i>
-                </Link>)
-          }
+          {token ? (
+            <Link
+              to="/"
+              className={`links ${
+                activeLink === "logout"
+                  ? "stroke shadow-in p-2 roundedBorder"
+                  : "stroke-grey"
+              }`}
+              title="Logout"
+              onClick={() => {
+                handleLinkClick("logout");
+                localStorage.removeItem("filedesk");
+              }}
+            >
+              logout
+            </Link>
+          ) : (
+            <Link
+              to="/auth"
+              className={`links ${
+                activeLink === "auth"
+                  ? "stroke shadow-in p-2 roundedBorder"
+                  : "stroke-grey"
+              }`}
+              title="auth"
+              onClick={() => handleLinkClick("auth")}
+            >
+              <i className="fas fa-sign-in-alt  p-2"></i>
+            </Link>
+          )}
         </div>
         {/* ------------------Sidebar------------------ */}
         {/* <button

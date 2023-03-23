@@ -240,9 +240,8 @@
 .forgotPassword input:focus {
   color: var(--primary);
 }
-.forgotpass{
-  transition: .4s ease;
-
+.forgotpass {
+  transition: 0.4s ease;
 }
 .forgotpass:hover {
   color: red;
@@ -256,9 +255,12 @@
   .auth .sign-in-container {
     width: 100%;
   }
-  .auth .sign-up-container {
-    /* width: 100%; */
-    /* padding: 0; */
+  .sign-up-container{
+    width: 100%;
+  }
+  .auth .container.right-panel-active .sign-up-container {
+    width: 100%;
+    transform: translateX(0%);
   }
   .auth form {
     padding: 0 1rem;
@@ -268,5 +270,11 @@
   }
   .auth .signUp-1 {
     display: block;
+  }
+  .forgotPassword .rightpart{
+    padding: 1rem 2rem;
+  }
+  .forgotPassword .rightpart h1{
+    letter-spacing: 3px;
   }
 }
