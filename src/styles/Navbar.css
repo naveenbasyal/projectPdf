@@ -13,6 +13,7 @@
 }
 .nav-items a {
   padding: 0.2rem;
+
 }
 .nav-items a:active {
   box-shadow: var(--shadow-out);
@@ -22,6 +23,7 @@
 .nav-items a:hover {
   color: var(--primary-light);
 }
+/* cursor: pointer ; */
 .navbar .nav-links {
   display: flex;
   flex-direction: row;
@@ -48,6 +50,10 @@
   margin: 0rem 3rem;
   text-decoration: none;
   transition: 0.1s ease-out;
+  cursor: pointer!important;
+}
+.links i{
+  cursor: pointer;
 }
 .bar{
   display: none;

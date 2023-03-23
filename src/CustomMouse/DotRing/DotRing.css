@@ -15,7 +15,8 @@
     z-index: 999;
     pointer-events: none;
     box-shadow: 1px -1px 10px 0px var(--primary);
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
+    background: transparent;
   }
   
   .dot {

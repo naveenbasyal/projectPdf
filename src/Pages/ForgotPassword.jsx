@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Auth.css";
 
 const ForgotPassword = () => {
@@ -34,9 +35,13 @@ const ForgotPassword = () => {
                   placeholder="john@example.com"
                   autoComplete="off"
                 />
-               
               </div>
-              <button type="submit" className="shadow-btn shadow-out dim pop">Send</button>
+              <button type="submit" className="shadow-btn  shadow-out dim pop">
+                Send
+              </button>
+              <Link to="/auth" className=" dim pop mx-4 forgotpass shadow-out shadow-btn">
+                Login
+              </Link>
             </form>
           </div>
         </div>
