@@ -12,7 +12,7 @@ const SetupPrint = () => {
     setBlackWhite(false);
     setColoured(true);
   };
-  // const [color, setColor] = useState('bw')
+  const [color, setColor] = useState('bw')
   return (
     <>
       <div className="d-flex my-3 setup row">
@@ -20,7 +20,7 @@ const SetupPrint = () => {
           <span className="fw-bold mx-4">Colors:</span>
         </div>
         <div className="col-lg-9 d-flex ">
-          <div className="col-lg-5 ">
+          {/* <div className="col-lg-5 ">
             <div className="form-check mx-3">
               <input
                 className="form-check-input"
@@ -34,8 +34,8 @@ const SetupPrint = () => {
                 Black & White
               </label>
             </div>
-          </div>
-          <div className="col-lg-5">
+          </div> */}
+          {/* <div className="col-lg-5">
             <div className="form-check mx-3">
               <input
                 className="form-check-input"
@@ -49,8 +49,8 @@ const SetupPrint = () => {
                 Coloured
               </label>
             </div>
-          </div>
-          {/* <div className={
+          </div> */}
+          <div className={
             `bwBox mx-4 ${color === 'bw' ? "active" : ""}`
           }
             title="Black and White"
@@ -66,7 +66,7 @@ const SetupPrint = () => {
             onClick={() => setColor('color')}
           >
 
-          </div> */}
+          </div>
         </div>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-const BindingCharges = () => {
+const BindingCharges = ({cover , spiral}) => {
   return (
     <>
       <motion.table
@@ -27,20 +27,13 @@ const BindingCharges = () => {
         <tbody>
           <tr>
             <td>Spiral Binding</td>
-            <td>₹40.00</td>
+            <td>₹{spiral}.00</td>
           </tr>
           <tr>
             <td> Plastic Cover</td>
-            <td>₹10.00</td>
+            <td>₹{cover}.00</td>
           </tr>
-          <tr>
-            <td> Staples only</td>
-            <td> ₹5.00</td>
-          </tr>
-          <tr>
-            <td> Loose Leaf</td>
-            <td>₹0.00 </td>
-          </tr>
+         
         </tbody>
       </motion.table>
     </>

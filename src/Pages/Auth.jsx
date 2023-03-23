@@ -1,16 +1,92 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { toast } from "react-hot-toast";
 import "../styles/Auth.css";
+import getToken from "../utils/getToken";
 const LoginSignUp = () => {
   const [signUp, setSignUp] = useState(false);
   const [signIn, setSignIn] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
-  const handleSignUp = () => {
+
+  const navigate = useNavigate();
+  const token = getToken();
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
+  
+  const handleSignUp = async (e) => {
     setSignUp(true);
     setSignIn(false);
-    console.log("up");
   };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    console.log(name, email, password);
+    if (!name || !email || !password) {
+      toast.error("Please fill all the fields");
+      return;
+    }
+    const res = await fetch(
+      `${import.meta.env.VITE_APP_API_URL}/api/user/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      }
+    );
+    const data = await res.json();
+    if (data.error) {
+      toast.error(data.error);
+      return;
+    }
+    toast.success("Account Created Successfully");
+    setSignUp(false);
+    setSignIn(true);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    console.log(email, password);
+    if (!email || !password) {
+      toast.error("Please fill all the fields");
+      return;
+    }
+    const res = await fetch(
+      `${import.meta.env.VITE_APP_API_URL}/api/user/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
+    const data = await res.json();
+    if (data.error) {
+      toast.error(data.error);
+      return;
+    }
+    toast.success("Login Successfully");
+    localStorage.setItem("filedesk", data.token);
+    navigate("/");
+  };
+
   const handleSignIn = () => {
     setSignUp(false);
     setSignIn(true);
@@ -24,7 +100,7 @@ const LoginSignUp = () => {
       >
         {/* ---------SignUP----------- */}
         <div className="form-container sign-up-container  ">
-          <form className=" ">
+          <form className="" onSubmit={handleRegister}>
             <h1 className="fs-4 stroke jsf p-1 ls-1">Create Account</h1>
             <div className="social-container">
               <a href="#" className="social ">
@@ -42,23 +118,35 @@ const LoginSignUp = () => {
               className="form-control pop shadow-in input "
               type="text"
               placeholder="Name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
             />
             <input
               className="form-control pop shadow-in input "
               type="email"
               placeholder="Email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <input
               className="form-control pop shadow-in input "
               type="password"
               placeholder="Password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <button className="shadow-out dim my-2">Sign Up</button>
           </form>
         </div>
         {/* ---------------SignIn---------- */}
         <div className="form-container sign-in-container col-sm-12">
-          <form>
+          <form onSubmit={handleLogin}>
             <h1 className="stroke ls-1 jsf p-1">Sign in</h1>
             <div className="social-container">
               <a href="#" className="social">
@@ -76,13 +164,21 @@ const LoginSignUp = () => {
               className="form-control pop shadow-in input"
               type="email"
               placeholder="Email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <input
               className="form-control pop shadow-in input"
               type="password"
               placeholder="Password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
-            <Link href="#">Forgot your password?</Link>
+            <Link to="/forgotpassword">Forgot your password?</Link>
             <button onClick={handleSignUp} className="signUp-1" id="signUp-1">
               Sign Up
             </button>
