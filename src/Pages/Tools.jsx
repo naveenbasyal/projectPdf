@@ -70,7 +70,7 @@ const Tools = ({ scrollToTop }) => {
             {tools.map((tool) => (
               // __________Tools_Card____________
               <div className="col-lg-4 my-1 col-md-6 card_tools col-sm-12" key={tool.id}>
-                <Link to={tool.link} className="">
+                <Link to={tool.link} className=" shadow-out">
                   <motion.div
                     onClick={scrollToTop}
                     initial={{ x: "100vw", opacity: 0 }}

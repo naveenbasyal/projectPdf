@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import BindingCharges from "../delivery/Charges/BindingCharges";
 import PaperCharges from "../delivery/Charges/PrintingCharges";
 import TotalPrices from "../delivery/Charges/TotalPrices";
@@ -31,7 +31,6 @@ const Copies = () => {
         type="text"
         value={copies}
         disabled
-        onChange={(e) => setCopies(e.target.value)}
         className="center shadow-in px-2 mx-2 form-control"
       />
       <button onClick={handlePlusButton} className=" shadow-out">
@@ -45,7 +44,8 @@ const Delivery = ({ scrollToTop }) => {
   const [selectedFiles, setSelectedFiles] = useState({});
   const [totalFiles, setTotalFiles] = useState(0);
   const [error, setError] = useState("");
-  const [totalPrice, setTotalPrice] = useState(0); // new state variable for total price
+
+  // 
 
   const handleFileChange = (e) => {
     const files = e.target.files;
@@ -78,19 +78,15 @@ const Delivery = ({ scrollToTop }) => {
             };
             page.render(renderContext).promise.then(() => {
               const imageDataUri = canvas.toDataURL();
-              const pricePerPage = 1.5; // example price per page
-              const filePrice = pages * pricePerPage; // calculate price of file
-              newFiles[file.name] = { pages, imageDataUri, price: filePrice }; // add file name, number of pages, price, and image data URI to newFiles object
+            
+              newFiles[file.name] = { pages, imageDataUri}; // add file name, number of pages, price, and image data URI to newFiles object
               setSelectedFiles((prev) => {
                 return { ...prev, ...newFiles }; // merge newFiles with previously selected files
               });
               setTotalFiles(
                 Object.keys(selectedFiles).length + Object.keys(newFiles).length
               ); // set total files count
-              const totalPrice = Object.values(selectedFiles)
-                .concat(Object.values(newFiles))
-                .reduce((acc, cur) => acc + cur.price, 0); // calculate total price of all files
-              setTotalPrice(totalPrice); // set total price state
+            
             });
           });
         });
@@ -99,12 +95,11 @@ const Delivery = ({ scrollToTop }) => {
   };
 
   //  ----------- Delete the selected File-------------
-  const handleDeleteFile = (name, price) => {
+  const handleDeleteFile = (name) => {
     const newFiles = { ...selectedFiles };
     delete newFiles[name];
     setSelectedFiles(newFiles);
     setTotalFiles(totalFiles - 1);
-    setTotalPrice(totalPrice - price);
   };
 
   return (
@@ -207,7 +202,7 @@ const Delivery = ({ scrollToTop }) => {
                             <i
                               className="fa fa-trash "
                               aria-hidden="true"
-                              onClick={() => handleDeleteFile(name, file.price)}
+                              onClick={() => handleDeleteFile(name)}
                             ></i>
                           </button>
                           {/* ------------- Single Pdf Price------- */}
@@ -262,7 +257,7 @@ const Delivery = ({ scrollToTop }) => {
       </section>
 
       {/* --------Total Prices------------ */}
-      <TotalPrices totalPrice={totalPrice} />
+      <TotalPrices />
     </>
   );
 };

@@ -10,7 +10,7 @@ const Navbar = ({ scrollToTop }) => {
     setActiveLink(link);
     scrollToTop();
   };
-  // const
+  
   return (
     <>
       <div className="navbar d-flex shadow-out">
@@ -32,6 +32,18 @@ const Navbar = ({ scrollToTop }) => {
           </Link>
         </div>
         <div className="nav-items">
+          <Link
+            to="/"
+            className={`links ${
+              activeLink === "home"
+                ? "stroke shadow-in px-3 py-2 roundedBorder"
+                : "stroke-grey"
+            }`}
+            title="Tools"
+            onClick={() => handleLinkClick("home")}
+          >
+            <i class="fa-solid fa-house-chimney"></i>
+          </Link>
           <Link
             to="/tools"
             className={`links ${
