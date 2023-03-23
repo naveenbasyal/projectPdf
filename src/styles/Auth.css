@@ -228,9 +228,19 @@
   height: 40px;
   width: 40px;
 }
-.auth .signUp-1{
+.auth .signUp-1 {
   display: none;
   color: red;
+}
+.forgotPassword input {
+  outline: none;
+  border: none;
+  box-shadow: var(--shadow-out);
+}
+.forgotPassword input:focus {
+ 
+  color: var(--primary);
+  
 }
 
 @media screen and (max-width: 450px) {
@@ -244,14 +254,13 @@
     /* width: 100%; */
     /* padding: 0; */
   }
-  .auth form{
+  .auth form {
     padding: 0 1rem;
   }
   .auth {
     padding: 1rem 1.5rem;
   }
-  .auth .signUp-1{
+  .auth .signUp-1 {
     display: block;
   }
- 
 }

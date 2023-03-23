@@ -7,80 +7,85 @@ import getToken from "../utils/getToken";
 const LoginSignUp = () => {
   const [signUp, setSignUp] = useState(false);
   const [signIn, setSignIn] = useState(false);
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [name, setName] = useState('')
-  const navigate = useNavigate()
-  const token = getToken()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+
+
+  const navigate = useNavigate();
+  const token = getToken();
+
   useEffect(() => {
     if (token) {
-      navigate('/')
-      }
-      }, [token, navigate])
+      navigate("/");
+    }
+  }, [token, navigate]);
+  
   const handleSignUp = async (e) => {
     setSignUp(true);
     setSignIn(false);
-
   };
+
   const handleRegister = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     console.log(name, email, password);
-    if (!name
-      || !email
-      || !password
-    ) {
-      toast.error("Please fill all the fields")
-      return
+    if (!name || !email || !password) {
+      toast.error("Please fill all the fields");
+      return;
     }
-    const res = await fetch(`${import.meta.env.VITE_APP_API_URL}/api/user/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-      }),
-    });
+    const res = await fetch(
+      `${import.meta.env.VITE_APP_API_URL}/api/user/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      }
+    );
     const data = await res.json();
     if (data.error) {
       toast.error(data.error);
       return;
     }
     toast.success("Account Created Successfully");
-    setSignUp(false)
-    setSignIn(true)
-  }
+    setSignUp(false);
+    setSignIn(true);
+  };
 
   const handleLogin = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     console.log(email, password);
-    if (!email
-      || !password
-    ) {
-      toast.error("Please fill all the fields")
-      return
+    if (!email || !password) {
+      toast.error("Please fill all the fields");
+      return;
     }
-    const res = await fetch(`${import.meta.env.VITE_APP_API_URL}/api/user/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+    const res = await fetch(
+      `${import.meta.env.VITE_APP_API_URL}/api/user/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
     const data = await res.json();
     if (data.error) {
       toast.error(data.error);
       return;
     }
     toast.success("Login Successfully");
-    localStorage.setItem("filedesk", data.token)
-    navigate('/')
-  }
+    localStorage.setItem("filedesk", data.token);
+    navigate("/");
+  };
 
   const handleSignIn = () => {
     setSignUp(false);
@@ -136,7 +141,7 @@ const LoginSignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button className="shadow-out dim my-2" >Sign Up</button>
+            <button className="shadow-out dim my-2">Sign Up</button>
           </form>
         </div>
         {/* ---------------SignIn---------- */}
@@ -163,10 +168,6 @@ const LoginSignUp = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-
-
-
-
             />
             <input
               className="form-control pop shadow-in input"
@@ -177,7 +178,7 @@ const LoginSignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <Link href="#">Forgot your password?</Link>
+            <Link to="/forgotpassword">Forgot your password?</Link>
             <button onClick={handleSignUp} className="signUp-1" id="signUp-1">
               Sign Up
             </button>

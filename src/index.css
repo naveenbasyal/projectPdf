@@ -131,6 +131,7 @@ body {
     var(--primary-dark) 91%
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-stroke: 4px transparent;
   color: var(--primary-light);
 }
@@ -139,6 +140,8 @@ body {
   text-transform: uppercase;
   background: -webkit-linear-gradient(-86deg, #000 5%, #000000 53%, #000 91%);
   -webkit-background-clip: text;
+  background-clip: text;
+
   -webkit-text-stroke: 4px transparent;
   color: var(--greyDark);
 }
@@ -156,20 +159,11 @@ body {
   border: none;
 }
 
+
 .roundedBorder {
   border-radius: 45% !important;
 }
-::-webkit-scrollbar-track {
-  background-color: #ebebeb;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
 
-::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background: #6d6d6d;
-}
 .dim {
   color: var(--primary);
 }
@@ -189,6 +183,7 @@ body {
   display: grid;
   place-items: center;
 }
+
 @media screen and (max-width: 450px) {
   .card_tools {
     margin-left: 1rem !important;

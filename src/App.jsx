@@ -17,9 +17,15 @@ import Navbar from "./components/Navbar";
 import Cart from "./Pages/cart";
 import Tools from "./Pages/Tools";
 import Auth from "./Pages/Auth";
+<<<<<<< HEAD
 import {Toaster} from 'react-hot-toast'
 import DocToPdf from "./tools/DocToPdf";
 import ConvertToZip from "./tools/ConvertToZip";
+=======
+import { Toaster } from "react-hot-toast";
+import ForgotPassword from "./Pages/ForgotPassword";
+import VerifyEmail from "./Pages/VerifyEmail";
+>>>>>>> 7327ff2acc9e6f9fcfb40ca04d1ec312d9e6bd71
 
 const scrollToTop = () => {
   window.scrollTo({
@@ -28,16 +34,12 @@ const scrollToTop = () => {
   });
 };
 const App = () => {
-
   const { scrollYProgress } = useScroll();
-  useEffect(()=>{
-
-  },[localStorage
-  ])
+  useEffect(() => {}, [localStorage]);
   return (
     <>
       <BrowserRouter>
-      <Toaster />
+        <Toaster />
         <Navbar scrollToTop={scrollToTop} />
         {/* ____scrollbar____ */}
         <motion.div
@@ -64,6 +66,8 @@ const App = () => {
             <Route path="/tools/convert-zip" element={<ConvertToZip />} />
             
             <Route path="/auth" element={<Auth />} />
+            <Route path="/forgotpassword" element={<ForgotPassword />} />
+            <Route path="/verifyemail" element={<VerifyEmail />} />
           </Routes>
         </div>
       </BrowserRouter>
