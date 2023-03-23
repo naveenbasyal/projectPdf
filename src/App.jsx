@@ -17,9 +17,12 @@ import Navbar from "./components/Navbar";
 import Cart from "./Pages/cart";
 import Tools from "./Pages/Tools";
 import Auth from "./Pages/Auth";
-import { Toaster } from "react-hot-toast";
+import {Toaster} from 'react-hot-toast'
+import DocToPdf from "./tools/DocToPdf";
+import ConvertToZip from "./tools/ConvertToZip";
 import ForgotPassword from "./Pages/ForgotPassword";
 import VerifyEmail from "./Pages/VerifyEmail";
+
 
 const scrollToTop = () => {
   window.scrollTo({
@@ -56,9 +59,12 @@ const App = () => {
             <Route path="/tools/extract-pages" element={<ExtractPages />} />
             <Route path="/tools/remove-pages" element={<RemovePages />} />
             <Route path="/tools/create-pdf" element={<PdfMaker />} />
+            <Route path="/tools/doc-to-pdf" element={<DocToPdf />} />
+            <Route path="/tools/convert-zip" element={<ConvertToZip />} />
+            
             <Route path="/auth" element={<Auth />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
-            <Route path="/verifyemail" element={<VerifyEmail />} />
+            <Route path="/verifyemail/:token" element={<VerifyEmail />} />
           </Routes>
         </div>
       </BrowserRouter>

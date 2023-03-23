@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ExtractPages from "../tools/ExtractPages";
 import { Link } from "react-router-dom";
 import ToolsHeader from "../components/ToolsHeader";
 
@@ -54,6 +53,13 @@ const Tools = ({ scrollToTop }) => {
       description: "Create PDF from Text",
       icon: "fa-file-pdf",
       link: "/tools/create-pdf",
+    },
+    {
+      id: 8,
+      name: "Convert to Zip ",
+      description: "Convert PDF to Zip file",
+      icon: "fa-file-pdf",
+      link: "/tools/convert-zip",
     },
   ];
 
