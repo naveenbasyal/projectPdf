@@ -4,8 +4,7 @@ import "../styles/Navbar.css";
 import getToken from "../utils/getToken";
 
 const Navbar = ({ scrollToTop }) => {
-  const [activeLink, setActiveLink] = useState("");
-  const [sidebarActive, setsidebarActive] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
   const token = getToken()
   console.log(token)
 
